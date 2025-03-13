@@ -48,10 +48,7 @@ public class Life : MonoBehaviour
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
     public bool GetifDead() => isDead;
-    void Update()
-    {
-        Debug.Log(currentHealth);
-    }
+    
 }
 
 
