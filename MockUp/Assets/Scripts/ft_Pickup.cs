@@ -13,6 +13,7 @@ public class ft_Pickup : MonoBehaviour
 	/*we dectect when a object with the tag "stick" collides*/
     private void OnTriggerEnter(Collider other)
     {
+		
         if (other.CompareTag("stick"))
 			stick = other.gameObject;
     }
@@ -28,6 +29,7 @@ public class ft_Pickup : MonoBehaviour
 	{
 		if (stick != null && Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
 		{
+			Debug.Log("Aaaaa");
 			if (characterAnimator != null)
 				characterAnimator.Play(pickupAnim);
 			Destroy(stick);

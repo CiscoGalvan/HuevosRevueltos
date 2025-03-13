@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -18,22 +19,22 @@ public class InputManager : MonoBehaviour
 		_playerTwoMovement = ReferenceManager.Instance.GetPlayerTwo().GetComponent<MovementComponent>(); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        #region PlayerOneInput
-        _playerOneMovementInput.x = Input.GetAxis("HorizontalP1");
-        _playerOneMovementInput.y = Input.GetAxis("VerticalP1");
-        _playerOneMovement.SetMovementDirection(_playerOneMovementInput);
-        #endregion
+	private void FixedUpdate()
+	{
+		#region PlayerOneInput
+		_playerOneMovement.SetMovementDirection(_playerOneMovementInput);
+		#endregion
+		#region PlayerTwoInput
+		//_playerTwoMovement.SetMovementDirection(_playerTwoMovementInput);
+		#endregion
 
-
-
-        #region PlayerTwoInput
-        _playerTwoMovementInput.x = Input.GetAxis("HorizontalP2");
-        _playerTwoMovementInput.y = Input.GetAxis("VerticalP2");
-	
-		_playerTwoMovement.SetMovementDirection(_playerTwoMovementInput);
-        #endregion
-    }
+	}
+	public void OnMovePlayerOne(InputAction.CallbackContext value)
+	{
+        _playerOneMovementInput = value.ReadValue<Vector2>();	
+	}
+	public void OnMovePlayerTwo(InputAction.CallbackContext value)
+	{
+		//_playerTwoMovementInput = value.ReadValue<Vector2>();
+	}
 }

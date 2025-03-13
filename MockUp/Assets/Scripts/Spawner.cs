@@ -37,7 +37,6 @@ public class Spawner : MonoBehaviour
                 GameObject newObj = Instantiate(_prefabsobjects[randomIndex], transform.position, Quaternion.identity); //creación
 
                 Rigidbody rb = newObj.GetComponent<Rigidbody>();
-                Debug.Log(rb);
                 if (rb != null)
                 {
                     // Dirección aleatoria entre pointA y pointB

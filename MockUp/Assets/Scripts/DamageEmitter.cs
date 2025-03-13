@@ -18,7 +18,6 @@ public class DamageEmitter : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Life _life = collision.gameObject.GetComponent<Life>();
-        Debug.Log(_life != null);
         if (_life != null && collision.gameObject.layer == LayerMask.NameToLayer(elementToCollide.ToString()))
         {
            
