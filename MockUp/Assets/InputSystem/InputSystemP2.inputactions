@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PickObjectUp",
+                    "type": "Button",
+                    "id": "8da82325-13e4-40d9-a364-7c8f1acb9a6c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,9 +79,103 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "e08e7e9d-a6b7-4719-ab75-05beda0ccc62",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "03c155fa-21c8-40c0-9379-2221598fc2b0",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "fba7519d-8df5-41f3-a0b0-ca1f0c8d3407",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "257a09cf-486d-436e-a5f7-d57c07e50cf7",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "7a65567c-75bf-48f8-b83d-5a1c5126403e",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6e55aff0-954e-409a-92f4-0b9f64e192a2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickObjectUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "783fc3b2-43c6-4393-8f1a-b9375321dfbf",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PickObjectUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "KeyboardAndGamepad",
+            "bindingGroup": "KeyboardAndGamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

@@ -5,37 +5,33 @@ using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
 {
-	private Rigidbody _rb;
+	[Tooltip("Aceleración del movimiento del jugador")]
+	[SerializeField] private float _acceleration = 15f;
 
-	[SerializeField] private float _acceleration = 15f;  // Aumenta la velocidad progresivamente  
-	[SerializeField] private float _maxSpeed = 15f;       // Velocidad máxima del personaje  
-	[SerializeField] private float _friction = 3f;       // Cuánta resistencia hay al detenerse  
+	[Tooltip("Velocidad máxima que va a alcanzar el jugador")]
+	[SerializeField] private float _maxSpeed = 15f;
+
+	[Tooltip("Fricción a la que se ve sometido el movimiento del jugador")]
+	[SerializeField] private float _friction = 3f;
+
+	[Tooltip("Factor de multiplicación aplicado al input.")]
 	[SerializeField] private float _speed = 10f; // Multiplicador para la entrada del jugador
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		_rb = GetComponent<Rigidbody>();
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
+	private Vector3 _currentVelocity = Vector3.zero;
 
 	public void SetMovementDirection(Vector2 direction)
 	{
-		
 		if (direction.magnitude > 0)
 		{
-			Vector3 forceDirection = new Vector3(direction.x * _speed, 0, direction.y * _speed);
-			_rb.AddForce(forceDirection * _acceleration);
-			_rb.velocity = Vector3.ClampMagnitude(_rb.velocity, _maxSpeed);
+			Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * _speed;
+			_currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, _acceleration * Time.deltaTime);
+			_currentVelocity = Vector3.ClampMagnitude(_currentVelocity, _maxSpeed);
 		}
 		else
 		{
-			_rb.velocity = Vector3.Lerp(_rb.velocity, Vector3.zero, _friction * Time.deltaTime);
+			_currentVelocity = Vector3.Lerp(_currentVelocity, Vector3.zero, _friction * Time.deltaTime);
 		}
+
+		transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
 	}
 }
