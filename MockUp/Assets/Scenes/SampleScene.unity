@@ -122,6 +122,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &109137593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3719800562749416685, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551246824887141369, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551246824887141369, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585454775697963751, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020556167679235255, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_Name
+      value: Stick (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020556167679235255, guid: a1722e4090455d14fb0c79022475a439, type: 3}
+      propertyPath: m_TagString
+      value: stick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1722e4090455d14fb0c79022475a439, type: 3}
 --- !u!1 &136307622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,6 +2451,7 @@ GameObject:
   - component: {fileID: 1873828220}
   - component: {fileID: 1873828222}
   - component: {fileID: 1873828221}
+  - component: {fileID: 1873828223}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -2529,6 +2603,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1873828223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873828214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c119d95b15d7924498112d9bd0daee19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAnimator: {fileID: 0}
+  pickupAnim: Pickup
 --- !u!1 &1896975693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,3 +2969,4 @@ SceneRoots:
   - {fileID: 2139256866}
   - {fileID: 516019992}
   - {fileID: 1339831698}
+  - {fileID: 109137593}
