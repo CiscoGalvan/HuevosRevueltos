@@ -25,7 +25,7 @@ public class MovementComponent : MonoBehaviour
 
 	public void SetMovementDirection(Vector2 direction)
 	{
-		Debug.Log(direction);
+		
 		if (direction.magnitude > 0)
 		{
 			Vector3 forceDirection = new Vector3(direction.x * _speed, 0, direction.y * _speed);
