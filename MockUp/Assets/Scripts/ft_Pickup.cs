@@ -12,6 +12,7 @@ public class ft_Pickup : MonoBehaviour
 	[SerializeField]
 	private string pickupAnim = "Pickup";
 	private GameObject stick;
+	private bool _objectPickedUp = false;
 
 	/*we dectect when a object with the tag "stick" collides*/
     private void OnTriggerEnter(Collider other)
@@ -45,8 +46,14 @@ public class ft_Pickup : MonoBehaviour
 			if (characterAnimator != null)
 				characterAnimator.Play(pickupAnim);
 			Destroy(stick);
+			_objectPickedUp = true;
 			stick = null;
 		}
-		Debug.Log(value.performed);
 	}
+
+	public bool GetPickedUpObject() => _objectPickedUp;
+	public void SetPickedUpObject(bool newValue)
+	{
+		_objectPickedUp = newValue;
+	} 
 }
