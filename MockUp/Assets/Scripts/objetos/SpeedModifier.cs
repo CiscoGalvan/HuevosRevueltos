@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedModifier : obj
+public class SpeedModifier : powerup
 {
     // Start is called before the first frame update
     [SerializeField] private bool increase = true; // Factor de multiplicación o división

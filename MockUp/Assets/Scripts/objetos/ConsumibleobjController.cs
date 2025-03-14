@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Consumibleobj : MonoBehaviour
+public class ConsumibleobjController : MonoBehaviour
 {
     [SerializeField] private float effectDuration = 5f; // Tiempo que dura el efecto
-    private obj targetComponent;
+    private powerup targetComponent;
 
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log("a");
-        targetComponent =this.GetComponent<obj>();
+        targetComponent =this.GetComponent<powerup>();
         if (other.gameObject.GetComponent<MovementComponent>() == null) return;
 
         StartCoroutine(ApplyEffect(other.gameObject));
