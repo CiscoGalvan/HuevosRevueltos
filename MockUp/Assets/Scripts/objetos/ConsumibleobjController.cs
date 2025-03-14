@@ -10,7 +10,6 @@ public class ConsumibleobjController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("a");
         targetComponent =this.GetComponent<powerup>();
         if (other.gameObject.GetComponent<MovementComponent>() == null) return;
 

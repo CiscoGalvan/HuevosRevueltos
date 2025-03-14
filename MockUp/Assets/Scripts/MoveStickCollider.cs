@@ -46,7 +46,7 @@ public class MoveStickCollider : MonoBehaviour
 		_pivot.rotation = Quaternion.Euler(0, _gradoInicial, 0);
 
 		_movingObjectCollider = _movingGameObject.GetComponent<Collider>(); 
-		//_movingObjectCollider.enabled = false;
+		_movingObjectCollider.enabled = false;
 	}
 
     // Update is called once per frame
@@ -99,6 +99,6 @@ public class MoveStickCollider : MonoBehaviour
 	public void SetMovingObjectCollider(bool newValue)
 	{
 		//Cuidado por si se llama más veces de la cuenta
-		//_movingObjectCollider.enabled = newValue;
+		_movingObjectCollider.enabled = newValue;
 	}
 }

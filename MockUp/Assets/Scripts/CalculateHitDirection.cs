@@ -11,33 +11,42 @@ public class CalculateHitDirection : MonoBehaviour
 
     [SerializeField]
     private float _hitStrength;
-	private void OnCollisionEnter(Collision collision)
-	{
-		Debug.Log("A");
-
-		//if (((1 << collision.gameObject.layer) & mask) != 0)
-		//{
-		
-		//	ContactPoint contact = collision.contacts[0];
-		//	Vector3 normalColision = contact.normal;
-
-		//	Debug.Log("Normal de la colisión: " + normalColision);
-		//}
-	}
-	private void OnCollisionStay(Collision collision)
-	{
-		Debug.Log("B");
-	}
 	
-	// Start is called before the first frame update
-	void Start()
-    {
-      
-    }
+	private Vector3 previousPosition;
+	private Vector3 currentVelocity;
+	private void Start()
+	{
+		previousPosition = transform.position;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void FixedUpdate()
+	{
+		
+		Vector3 currentPosition = transform.position;
+		currentVelocity = (currentPosition - previousPosition) / Time.fixedDeltaTime;
+		previousPosition = currentPosition;
+	}
+	private void OnTriggerEnter(Collider other)
+	{
+	
+		if (((1 << other.gameObject.layer) & mask) != 0)
+		{
+			Rigidbody rb = other.GetComponent<Rigidbody>();
+			if (rb != null)
+			{
+				Vector3 hitDirection;
+				
+				if (currentVelocity.magnitude > 0.1f)
+				{
+					hitDirection = currentVelocity.normalized;
+				}
+				else
+				{
+					
+					hitDirection = (other.transform.position - transform.position).normalized;
+				}
+				rb.velocity = hitDirection * _hitStrength;
+			}
+		}
+	}
 }
