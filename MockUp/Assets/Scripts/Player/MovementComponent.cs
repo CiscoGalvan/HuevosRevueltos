@@ -34,4 +34,14 @@ public class MovementComponent : MonoBehaviour
 
 		transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
 	}
+	public void setSpeed(float s)
+	{
+        _speed = s;	
+
+	}
+    public float getSpeed()
+    {
+        return _speed;
+
+    }
 }
