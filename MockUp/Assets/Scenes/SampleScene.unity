@@ -186,7 +186,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 70414155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1593,6 +1593,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6620381907859379487, guid: 17eff74a0d48aef4da41269b184e3dae, type: 3}
+      propertyPath: increase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620381907859379487, guid: 17eff74a0d48aef4da41269b184e3dae, type: 3}
+      propertyPath: speedMultiplier
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8867748311001679201, guid: 17eff74a0d48aef4da41269b184e3dae, type: 3}
       propertyPath: m_Name
       value: hielo
@@ -2163,6 +2171,7 @@ MonoBehaviour:
   _gradoGolpeDerecha: 0
   _gradoInicialGolpeIzquierda: -120
   _gradoGolpeIzquierda: 0
+  _timeNeededToResetCombo: 0.8
 --- !u!1 &2073090816
 GameObject:
   m_ObjectHideFlags: 0

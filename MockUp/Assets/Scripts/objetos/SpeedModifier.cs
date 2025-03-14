@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SpeedModifier : powerup
 {
-    // Start is called before the first frame update
-    [SerializeField] private bool increase = true; // Factor de multiplicación o división
-    [SerializeField] private float speedMultiplier = 1.5f; // Factor de multiplicación o división
+	// Start is called before the first frame update
+	[Tooltip("Booleano que indica si la velocidad incrementa o disminuye")]
+	[SerializeField] private bool increase = true;
+	[Tooltip("Factor por el que se multiplicará en caso de aumentar y dividirá la velocidad en caso de disminuir")]
+	[SerializeField] private float speedFactor = 1.5f; 
     private MovementComponent playerMovement;
     private float originalSpeed;
 
@@ -31,11 +33,11 @@ public class SpeedModifier : powerup
 
         if (increase)
         {
-            playerMovement.setSpeed(originalSpeed * speedMultiplier) ;
+            playerMovement.setSpeed(originalSpeed * speedFactor) ;
         }
         else
         {
-            playerMovement.setSpeed(originalSpeed / speedMultiplier);
+            playerMovement.setSpeed(originalSpeed / speedFactor);
 
         }
     }

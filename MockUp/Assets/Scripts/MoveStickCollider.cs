@@ -12,9 +12,12 @@ public class MoveStickCollider : MonoBehaviour
         Right = 1
     }
 
-    [SerializeField]
+	[Tooltip("Punto desde el que pivota el MovingGameObject")]
+	[SerializeField]
     private Transform _pivot;
-    [SerializeField]
+
+	[Tooltip("Objeto que va a moverse alrededor del castor")]
+	[SerializeField]
     private GameObject _movingGameObject;
     
     private HittingDirection _direction;
@@ -22,12 +25,21 @@ public class MoveStickCollider : MonoBehaviour
 
     private bool _isMoving;
     private bool _inputDetected;
-    [SerializeField]
+
+	[Tooltip("Tiempo entre un movimiento a un lado y al otro lado")]
+	[SerializeField]
     private float _movimientoDuracion;
 
+	[Tooltip("Grado desde donde empieza el movimiento de derecha")]
 	[SerializeField] private float _gradoInicial = 0f;
+
+	[Tooltip("Grado hasta el que llega el movimiento de derecha")]
 	[SerializeField] private float _gradoGolpeDerecha = 45f;
+
+	[Tooltip("Grado desde donde empieza el movimiento de izquierda")]
 	[SerializeField] private float _gradoInicialGolpeIzquierda = -10f;
+
+	[Tooltip("Grado hasta el que llega el movimiento de izquierda")]
 	[SerializeField] private float _gradoGolpeIzquierda = -45f;
 
 	private float _moveElapsedTime;
@@ -35,24 +47,28 @@ public class MoveStickCollider : MonoBehaviour
 	private float _targetRotation;
 
 	private Collider _movingObjectCollider;
+
+	private float _resetComboTimer = 0f;
+
+	[Tooltip("Tiempo necesario para que se resetee el combo de dos golpes")]
+	[SerializeField]
+	private float _timeNeededToResetCombo;
 	// Start is called before the first frame update
 	void Start()
     {
         _direction = HittingDirection.Right;
         _isMoving = false;
         _pickUpObject = GetComponent<ft_Pickup>();
-
-		// Inicializamos la rotación del pivot en el ángulo inicial
 		_pivot.rotation = Quaternion.Euler(0, _gradoInicial, 0);
-
 		_movingObjectCollider = _movingGameObject.GetComponent<Collider>(); 
 		_movingObjectCollider.enabled = false;
+		_resetComboTimer = 0f;
 	}
 
     // Update is called once per frame
     void Update()
     {
-		// Si se está realizando un movimiento, se actualiza la interpolación en cada frame
+		Debug.Log(_resetComboTimer);
 		if (_isMoving)
 		{
 			_moveElapsedTime += Time.deltaTime;
@@ -62,7 +78,7 @@ public class MoveStickCollider : MonoBehaviour
 
 			if (_moveElapsedTime >= _movimientoDuracion)
 			{
-				// Finaliza el movimiento, se fija la rotación final y se alterna la dirección
+				
 				_pivot.rotation = Quaternion.Euler(0, _targetRotation, 0);
 				_isMoving = false;
 				_inputDetected = false;
@@ -70,7 +86,6 @@ public class MoveStickCollider : MonoBehaviour
 				SetMovingObjectCollider(false);
 			}
 		}
-		// Si no se está moviendo y se ha detectado input, se inicia el movimiento
 		else if (_inputDetected)
 		{
 			switch (_direction)
@@ -88,6 +103,20 @@ public class MoveStickCollider : MonoBehaviour
 			_isMoving = true;
 			//ESTO DEBE SER LANZADO POR LA ANIMACIÓN.
 			SetMovingObjectCollider(true);
+		}
+		else
+		{
+			
+			if (_direction == HittingDirection.Left)
+			{
+				Debug.Log(_resetComboTimer);
+				_resetComboTimer += Time.deltaTime;
+				if (_resetComboTimer >= _timeNeededToResetCombo)
+				{
+					_direction = HittingDirection.Right;
+					_resetComboTimer = 0f;
+				}
+			}
 		}
 	}
     public void HitWithStick(InputAction.CallbackContext value)
