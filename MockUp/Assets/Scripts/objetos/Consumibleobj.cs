@@ -10,8 +10,9 @@ public class Consumibleobj : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        targetComponent = other.gameObject.GetComponent<obj>();
-        if (targetComponent == null) return;
+        Debug.Log("a");
+        targetComponent =this.GetComponent<obj>();
+        if (other.gameObject.GetComponent<MovementComponent>() == null) return;
 
         StartCoroutine(ApplyEffect(other.gameObject));
     }
