@@ -44,7 +44,8 @@ public class CalculateHitDirection : MonoBehaviour
 				if(_particlePrefab != null)
 				{
 					_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
-					Destroy(_particleGameObject, 1);
+					Destroy(_particleGameObject, 1.5f);
+					Debug.Log("generacion de particulas");
 				}
 	
 				if (currentVelocity.magnitude > 0.1f)
