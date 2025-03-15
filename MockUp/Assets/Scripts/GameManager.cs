@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -56,10 +57,30 @@ public class GameManager : MonoBehaviour
       
         gameOverScreen.initScreen(isPlayer1);
     }
-    // Método para reiniciar el juego cargando la escena "Game"
-    public void inittGame()
+
+	private void Update()
+	{
+		if (Keyboard.current.anyKey.wasPressedThisFrame || AnyGamepadButtonPressed())
+		{
+            InitGame();
+		}
+	}
+    private bool AnyGamepadButtonPressed()
     {
-        SceneManager.LoadScene("Game");
-       
+        return Gamepad.current.buttonSouth.wasPressedThisFrame || 
+            Gamepad.current.buttonNorth.wasPressedThisFrame || 
+            Gamepad.current.buttonWest.wasPressedThisFrame || 
+            Gamepad.current.buttonEast.wasPressedThisFrame || 
+            Gamepad.current.startButton.wasPressedThisFrame ||
+            Gamepad.current.selectButton.wasPressedThisFrame ||
+            Gamepad.current.leftShoulder.wasPressedThisFrame ||
+            Gamepad.current.rightShoulder.wasPressedThisFrame ||
+            Gamepad.current.leftTrigger.wasPressedThisFrame ||
+            Gamepad.current.rightTrigger.wasPressedThisFrame;
+	}
+	// Método para reiniciar el juego cargando la escena "Game"
+	private void InitGame()
+    {
+        SceneManager.LoadScene("Game");  
     }
 }
