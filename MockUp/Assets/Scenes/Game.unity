@@ -281,6 +281,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1435262998042001338, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435262998042001338, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
+      propertyPath: outlineMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1435262998042001338, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
+      propertyPath: outlineWidth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5978298724740140028, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
       propertyPath: m_Name
       value: Stick
@@ -291,7 +303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731826871902337958, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8745003
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 7731826871902337958, guid: 0d5f42d86ba51e24a90255dc63daf415, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2379,7 +2391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8867748311001679201, guid: 17eff74a0d48aef4da41269b184e3dae, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

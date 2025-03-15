@@ -18,13 +18,23 @@ public class ft_Pickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("stick"))
+		{
 			stick = other.gameObject;
+			Outline outline = other.gameObject.GetComponent<Outline>();
+			outline.enabled = true;
+		}
+			
     }
 	/*when the object with the tag stick gets out, we nullify the reference*/
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("stick") && stick == other.gameObject)
+		{
 			stick = null;
+			Outline outline = other.gameObject.GetComponent<Outline>();
+			outline.enabled = false;
+		}
+			
 	}
 
 	/*checks if the item is at range to pickup and if we have an animation for it*/
