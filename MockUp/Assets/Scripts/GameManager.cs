@@ -60,10 +60,14 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		if ((Keyboard.current.anyKey.wasPressedThisFrame || (Gamepad.current != null && AnyGamepadButtonPressed() )&& SceneManager.GetActiveScene().name == "initialMenu"))
-		{
-            InitGame();
-		}
+
+        if(SceneManager.GetActiveScene().name == "initialMenu")
+        {
+            if((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
+            {
+				InitGame();
+			}
+        }
 	}
     private bool AnyGamepadButtonPressed()
     {
