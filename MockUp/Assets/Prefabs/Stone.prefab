@@ -200,5 +200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bb3b2000a770f4ea2b83f0088488ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountofDamage: 10
-  elementToCollide: 0
+  _amountOfDamage: 10
+  _stunnedTime: 3
+  _elementToCollide: 0

@@ -19,9 +19,16 @@ public class MovementComponent : MonoBehaviour
 
 	private Vector3 _currentVelocity = Vector3.zero;
 
+
+	private StunPlayerComponent _stunPlayerComponent;
+	private void Start()
+	{
+		_stunPlayerComponent = GetComponent<StunPlayerComponent>();
+	}
 	public void SetMovementDirection(Vector2 direction)
 	{
-		if (direction.magnitude > 0)
+
+		if (direction.magnitude > 0 && !_stunPlayerComponent.GetPlayerIsStunned())
 		{
 			Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * _speed;
 			_currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, _acceleration * Time.deltaTime);
@@ -42,6 +49,16 @@ public class MovementComponent : MonoBehaviour
     public float getSpeed()
     {
         return _speed;
+
+    }
+    public float getmaxSpeed()
+    {
+        return _maxSpeed;
+
+    }
+    public void setmaxSpeed(float s)
+    {
+        _maxSpeed = s;
 
     }
 }
