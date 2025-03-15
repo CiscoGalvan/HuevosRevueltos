@@ -11,12 +11,9 @@ public class SpeedModifier : powerup
 	[SerializeField] private float speedFactor = 1.5f; 
     private MovementComponent playerMovement;
     private float originalSpeed;
+    private float originalmaxSpeed;
 
-    private void Start()
-    {
-       
-    }
-
+   
     public override void Modifyobj(GameObject g)
     {
         playerMovement = g.gameObject.GetComponent<MovementComponent>();
@@ -24,6 +21,7 @@ public class SpeedModifier : powerup
         if (playerMovement != null)
         {
             originalSpeed = playerMovement.getSpeed();
+            originalmaxSpeed = playerMovement.getmaxSpeed();
         }
         else
         {
@@ -34,10 +32,12 @@ public class SpeedModifier : powerup
         if (increase)
         {
             playerMovement.setSpeed(originalSpeed * speedFactor) ;
+            playerMovement.setmaxSpeed(originalmaxSpeed * speedFactor) ;
         }
         else
         {
             playerMovement.setSpeed(originalSpeed / speedFactor);
+            playerMovement.setmaxSpeed(originalmaxSpeed / speedFactor);
 
         }
     }
@@ -47,6 +47,7 @@ public class SpeedModifier : powerup
         if (playerMovement != null)
         {
             playerMovement.setSpeed(originalSpeed);
+            playerMovement.setmaxSpeed(originalmaxSpeed);
         }
     }
 }
