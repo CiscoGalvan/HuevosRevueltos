@@ -27,7 +27,10 @@ public class CalculateHitDirection : MonoBehaviour
 	[SerializeField]
 	private float _rumbleHighFrequency;
 
-
+	[SerializeField]
+	public AudioClip HitSfx;
+	[SerializeField]
+	private float hitVolume = 1f;
 
 	[SerializeField]
 	private float _rumbleTime;
@@ -43,6 +46,7 @@ public class CalculateHitDirection : MonoBehaviour
 			if (rb != null)
 			{
 				Debug.Log("Collided");
+				ft_AudioManager.Instance.PlaySFX(HitSfx, hitVolume);
 
 				Vector3 hitDirection;
 				Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
