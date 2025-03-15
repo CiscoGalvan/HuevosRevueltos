@@ -10,13 +10,23 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     float amountoftime = 1.0f;
     float currenttime;
-    
+
     //direccion de los enemigos
+    
     [SerializeField]
-    private Transform pointA;
+    private Transform pointCentreRight;
 
     [SerializeField]
-    private Transform pointB;
+    private Transform pointCentreLeft;
+
+    //[SerializeField]
+    //private Transform SpawnPoint;
+
+    [SerializeField]
+    private Transform pointRight;
+
+    [SerializeField]
+    private Transform pointLeft;
 
     [SerializeField]
     private float minForce = 1.0f;
@@ -39,14 +49,20 @@ public class Spawner : MonoBehaviour
                 Rigidbody rb = newObj.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-
+                    Vector3 direction = Vector3.left;
+                    if (Random.value >= 0.5f)
+                    {
+                        direction = (Vector3.Lerp(pointRight.position, pointCentreLeft.position,Random.value) - transform.position).normalized;
+                    }
+                    else direction = (Vector3.Lerp(pointLeft.position, pointCentreLeft.position, Random.value) - transform.position).normalized;
                     // Dirección aleatoria entre pointA y pointB
-                    Vector3 direction = (Vector3.Lerp(pointA.position, pointB.position, Random.value) - transform.position).normalized;
+
 
                     // Fuerza aleatoria dentro del rango
                     float randomForce = Random.Range(minForce, maxForce);
 
                     rb.AddForce(direction * randomForce, ForceMode.Impulse);
+                    Debug.Log(randomForce);
                 }
             }
         }

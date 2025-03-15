@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - stick
+  - presa1
+  - presa2
   layers:
   - Default
   - TransparentFX

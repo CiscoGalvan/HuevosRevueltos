@@ -31,6 +31,7 @@ public class Life : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead=true;
+            GameManager.Instance.EndScene(this.gameObject);
         }
     }
 

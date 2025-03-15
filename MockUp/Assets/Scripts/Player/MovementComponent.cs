@@ -44,4 +44,14 @@ public class MovementComponent : MonoBehaviour
         return _speed;
 
     }
+    public float getmaxSpeed()
+    {
+        return _maxSpeed;
+
+    }
+    public void setmaxSpeed(float s)
+    {
+        _maxSpeed = s;
+
+    }
 }
