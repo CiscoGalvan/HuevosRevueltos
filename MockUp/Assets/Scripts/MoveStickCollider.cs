@@ -68,7 +68,7 @@ public class MoveStickCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Debug.Log(_resetComboTimer);
+		//Debug.Log(_resetComboTimer);
 		if (_isMoving)
 		{
 			_moveElapsedTime += Time.deltaTime;
@@ -101,7 +101,7 @@ public class MoveStickCollider : MonoBehaviour
 			}
 			_moveElapsedTime = 0f;
 			_isMoving = true;
-			//ESTO DEBE SER LANZADO POR LA ANIMACIÓN.
+			//ESTO DEBE SER LANZADO POR LA ANIMACIï¿½N.
 			SetMovingObjectCollider(true);
 		}
 		else
@@ -109,7 +109,7 @@ public class MoveStickCollider : MonoBehaviour
 			
 			if (_direction == HittingDirection.Left)
 			{
-				Debug.Log(_resetComboTimer);
+				//Debug.Log(_resetComboTimer);
 				_resetComboTimer += Time.deltaTime;
 				if (_resetComboTimer >= _timeNeededToResetCombo)
 				{
@@ -127,7 +127,7 @@ public class MoveStickCollider : MonoBehaviour
 
 	public void SetMovingObjectCollider(bool newValue)
 	{
-		//Cuidado por si se llama más veces de la cuenta
+		//Cuidado por si se llama mï¿½s veces de la cuenta
 		_movingObjectCollider.enabled = newValue;
 	}
 }

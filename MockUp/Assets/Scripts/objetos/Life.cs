@@ -11,6 +11,9 @@ public class Life : MonoBehaviour
     private int initialHealth = 75;
     private int currentHealth;
 
+    [SerializeField] 
+    private int collisionDamage = 10;
+
 
     private bool isDead;
     // Start is called before the first frame update
@@ -23,14 +26,13 @@ public class Life : MonoBehaviour
     public void Damage(int amount)
     {
         if (amount <= 0 || isDead) return;
-
-
         currentHealth -= amount;
 
         if (currentHealth <= 0)
         {
             isDead=true;
         }
+        Debug.Log("daño detectado");
     }
 
     public void Heal(int amount)
@@ -44,6 +46,15 @@ public class Life : MonoBehaviour
             currentHealth = initialHealth;
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Piedras") || 
+            collision.gameObject.layer == LayerMask.NameToLayer("Palo"))
+        {
+            Damage(collisionDamage);
+        }
     }
     public int GetCurrentHealth() => currentHealth;
     public int GetMaxHealth() => maxHealth;
