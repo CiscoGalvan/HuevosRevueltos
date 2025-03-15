@@ -62,7 +62,6 @@ public class Spawner : MonoBehaviour
                     float randomForce = Random.Range(minForce, maxForce);
 
                     rb.AddForce(direction * randomForce, ForceMode.Impulse);
-                    Debug.Log(randomForce);
                 }
             }
         }

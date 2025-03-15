@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class CalculateHitDirection : MonoBehaviour
 {
+	//Necesario para ver que Player le pega a la lata
+	private enum NumberOfPlayer
+	{
+		PlayerOne = 1,
+		PlayerTwo = 2
+	}
+
     [SerializeField]
     LayerMask mask;
 
@@ -31,6 +38,9 @@ public class CalculateHitDirection : MonoBehaviour
 	public AudioClip HitSfx;
 	[SerializeField]
 	private float hitVolume = 1f;
+	[Tooltip("Necesario para saber que jugador ha golpeado la lata")]
+	[SerializeField]
+	private NumberOfPlayer _playerNumber;
 
 	[SerializeField]
 	private float _rumbleTime;
@@ -40,14 +50,17 @@ public class CalculateHitDirection : MonoBehaviour
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (((1 << collision.gameObject.layer) & mask) != 0)
+		DamageEmitter damageEmitter = collision.gameObject.GetComponent<DamageEmitter>();
+
+		if(damageEmitter != null)
 		{
 			Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
 			if (rb != null)
-			{
-				Debug.Log("Collided");
-				ft_AudioManager.Instance.PlaySFX(HitSfx, hitVolume);
-
+			{	
+				if(HitSfx != null)
+				{
+					ft_AudioManager.Instance.PlaySFX(HitSfx, hitVolume);
+				}
 				Vector3 hitDirection;
 				Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
 				if (_gamepad != null)
@@ -60,13 +73,19 @@ public class CalculateHitDirection : MonoBehaviour
 					Destroy(_particleGameObject, 1);
 				}
 
+				// Si la lata no ha sido lanzada, la marco como lanzada y seteo su objetivo
+				if (!damageEmitter.GetHitted())
+				{
+					damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
+					damageEmitter.SetHittedObject(true);
+				}
+
 				if (currentVelocity.magnitude > 0.1f)
 				{
 					hitDirection = currentVelocity.normalized;
 				}
 				else
 				{
-
 					hitDirection = (collision.gameObject.transform.position - transform.position).normalized;
 				}
 				rb.velocity = hitDirection * _hitStrength;
