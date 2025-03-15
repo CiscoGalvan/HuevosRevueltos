@@ -277,6 +277,9 @@ MonoBehaviour:
     m_Bits: 512
   _hitStrength: 100
   _particlePrefab: {fileID: 0}
+  _rumbleLowFrequency: 1
+  _rumbleHighFrequency: 1
+  _rumbleTime: 0.2
 --- !u!54 &70414161
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1641,6 +1644,9 @@ MonoBehaviour:
     m_Bits: 512
   _hitStrength: 100
   _particlePrefab: {fileID: 0}
+  _rumbleLowFrequency: 1
+  _rumbleHighFrequency: 1
+  _rumbleTime: 0.2
 --- !u!65 &924646497
 BoxCollider:
   m_ObjectHideFlags: 0

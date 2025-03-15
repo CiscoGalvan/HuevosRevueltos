@@ -36,19 +36,6 @@ public class ft_Pickup : MonoBehaviour
 		}
 			
 	}
-
-	/*checks if the item is at range to pickup and if we have an animation for it*/
-	//void Update()
-	//{
-	//	if (stick != null && Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Return))
-	//	{
-			//if (characterAnimator != null)
-			//			characterAnimator.Play(pickupAnim);
-			//		Destroy(stick);
-			//stick = null;
-	//	}
-	//}
-
 	public void WantToPickUp(InputAction.CallbackContext value)
 	{
 		if(stick && value.performed)
