@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] 
     private Life life2;
     private bool gameEnded = false;
-    void Start()
-    {
-    }
     void Update()
     {
         if(!gameEnded) {

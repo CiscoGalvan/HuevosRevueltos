@@ -14,6 +14,10 @@ public class CalculateHitDirection : MonoBehaviour
 	
 	private Vector3 previousPosition;
 	private Vector3 currentVelocity;
+	[SerializeField]
+	private GameObject _particlePrefab;
+
+	private GameObject _particleGameObject;
 	private void Start()
 	{
 		previousPosition = transform.position;
@@ -34,8 +38,15 @@ public class CalculateHitDirection : MonoBehaviour
 			Rigidbody rb = other.GetComponent<Rigidbody>();
 			if (rb != null)
 			{
-				Vector3 hitDirection;
 				
+				Vector3 hitDirection;
+				Vector3 hitPosition = other.ClosestPoint(other.gameObject.transform.position);
+				if(_particlePrefab != null)
+				{
+					_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
+					Destroy(_particleGameObject, 1);
+				}
+	
 				if (currentVelocity.magnitude > 0.1f)
 				{
 					hitDirection = currentVelocity.normalized;

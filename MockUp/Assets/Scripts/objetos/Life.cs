@@ -32,7 +32,6 @@ public class Life : MonoBehaviour
         {
             isDead=true;
         }
-        Debug.Log("daño detectado");
     }
 
     public void Heal(int amount)
