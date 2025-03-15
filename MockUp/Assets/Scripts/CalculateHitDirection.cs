@@ -11,8 +11,7 @@ public class CalculateHitDirection : MonoBehaviour
 
     [SerializeField]
     private float _hitStrength;
-	
-	private Vector3 previousPosition;
+
 	private Vector3 currentVelocity;
 	[SerializeField]
 	private GameObject _particlePrefab;
@@ -34,48 +33,41 @@ public class CalculateHitDirection : MonoBehaviour
 	private float _rumbleTime;
 	private void Start()
 	{
-		previousPosition = transform.position; _gamepad = Gamepad.current;
+		 _gamepad = Gamepad.current;
 	}
-
-	private void FixedUpdate()
+	private void OnCollisionEnter(Collision collision)
 	{
-		
-		Vector3 currentPosition = transform.position;
-		currentVelocity = (currentPosition - previousPosition) / Time.fixedDeltaTime;
-		previousPosition = currentPosition;
-	}
-	private void OnTriggerEnter(Collider other)
-	{
-	
-		if (((1 << other.gameObject.layer) & mask) != 0)
+		if (((1 << collision.gameObject.layer) & mask) != 0)
 		{
-			Rigidbody rb = other.GetComponent<Rigidbody>();
+			Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
 			if (rb != null)
 			{
-				
+				Debug.Log("Collided");
+
 				Vector3 hitDirection;
-				Vector3 hitPosition = other.ClosestPoint(other.gameObject.transform.position);
-				if(_gamepad != null)
+				Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
+				if (_gamepad != null)
 				{
-					VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency,_rumbleTime);
+					VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency, _rumbleTime);
 				}
-				if(_particlePrefab != null)
+				if (_particlePrefab != null)
 				{
 					_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
 					Destroy(_particleGameObject, 1);
 				}
-	
+
 				if (currentVelocity.magnitude > 0.1f)
 				{
 					hitDirection = currentVelocity.normalized;
 				}
 				else
 				{
-					
-					hitDirection = (other.transform.position - transform.position).normalized;
+
+					hitDirection = (collision.gameObject.transform.position - transform.position).normalized;
 				}
 				rb.velocity = hitDirection * _hitStrength;
 			}
 		}
-	} 
+	}
+
 }
