@@ -6,24 +6,36 @@ public class blendshape : MonoBehaviour
 {
     SkinnedMeshRenderer skinnedMeshRenderer;
     Mesh mesh;
-    int blendahape;
-    int playindex = 0;
-    // Start is called before the first frame update
+    int blendShapeCount;
+    int currentBlendShape = 0;
+    float blendWeight = 0f;
+    [SerializeField]
+    float speed = 50f; // Velocidad de la transición
+
     void Start()
     {
-        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();  
+        skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         mesh = skinnedMeshRenderer.sharedMesh;
-        blendahape = mesh.blendShapeCount;
-
+        blendShapeCount = mesh.blendShapeCount;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (playindex > 0) skinnedMeshRenderer.SetBlendShapeWeight(playindex - 1, 0f);
-        else if(playindex==0) skinnedMeshRenderer.SetBlendShapeWeight(blendahape-1, 0f);
-        skinnedMeshRenderer.SetBlendShapeWeight(playindex, 100f);
-        playindex++;
-        if (playindex > blendahape - 1) playindex = 0;
+        if (blendShapeCount == 0) return;
+
+        // Reducir el peso del blendshape anterior
+        int previousBlendShape = (currentBlendShape - 1 + blendShapeCount) % blendShapeCount;
+        float previousWeight = skinnedMeshRenderer.GetBlendShapeWeight(previousBlendShape);
+        skinnedMeshRenderer.SetBlendShapeWeight(previousBlendShape, Mathf.Max(0, previousWeight - speed * Time.deltaTime));
+
+        // Aumentar el peso del blendshape actual
+        float currentWeight = skinnedMeshRenderer.GetBlendShapeWeight(currentBlendShape);
+        skinnedMeshRenderer.SetBlendShapeWeight(currentBlendShape, Mathf.Min(100, currentWeight + speed * Time.deltaTime));
+
+        // Cuando el blendshape actual alcance 100, cambiar al siguiente
+        if (currentWeight >= 100)
+        {
+            currentBlendShape = (currentBlendShape + 1) % blendShapeCount;
+        }
     }
 }
