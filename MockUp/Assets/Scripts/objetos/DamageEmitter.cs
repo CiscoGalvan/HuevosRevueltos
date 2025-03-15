@@ -29,6 +29,8 @@ public class DamageEmitter : MonoBehaviour
         if (_life != null )
         {
             _life.Damage(_amountOfDamage);
+            //Animación de destrucción
+            Destroy(gameObject);
         }
     }
 

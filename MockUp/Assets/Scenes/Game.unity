@@ -1107,7 +1107,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  _hitStrength: 0.2
+  _hitStrength: 10
   _particlePrefab: {fileID: 0}
   _rumbleLowFrequency: 1
   _rumbleHighFrequency: 1
@@ -1670,7 +1670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   initialHealth: 10
-  collisionDamage: 10
 --- !u!1 &1162734539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2572,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   initialHealth: 10
-  collisionDamage: 10
 --- !u!1 &2009250664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2805,7 +2803,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  _hitStrength: 0.2
+  _hitStrength: 66.81
   _particlePrefab: {fileID: 0}
   _rumbleLowFrequency: 1
   _rumbleHighFrequency: 1

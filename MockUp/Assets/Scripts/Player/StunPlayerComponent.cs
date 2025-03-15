@@ -21,11 +21,9 @@ public class StunPlayerComponent : MonoBehaviour
        
         if (_playerIsStuned)
         {
-			Debug.Log(_time);
 			_time += Time.deltaTime;
             if(_time >= _stunnedTime)
             {
-                Debug.Log("Finished");
                 _playerIsStuned = false; _time = 0f; _stunnedTime = 0f;
 			}
         }
