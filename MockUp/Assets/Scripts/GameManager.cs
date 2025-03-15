@@ -2,29 +2,64 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] 
     private GameOverScreen  gameOverScreen;
-    [SerializeField] 
+   
     private Life life1;
-    [SerializeField] 
+    
     private Life life2;
-    private bool gameEnded = false;
-    void Update()
+    private static GameManager _instance;
+
+    public static GameManager Instance
     {
-        if(!gameEnded) {
-            if(life1.GetifDead()) {
-                GameOver(true);
+        get
+        {
+            if (_instance == null)
+            {
+                GameObject singletonObject = new GameObject("GameManager");
+                _instance = singletonObject.AddComponent<GameManager>();
+                DontDestroyOnLoad(singletonObject);
             }
-            else if(life2.GetifDead()) {
-                GameOver(false);
-            }
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void EndScene(GameObject g)
+    {
+        if (g.CompareTag("presa1"))
+        {
+            GameOver(true);
+        }
+        else if (g.CompareTag("presa2"))
+        {
+            GameOver(false);
         }
     }
     public void GameOver(bool isPlayer1) {
-        gameEnded = true;
+      
         gameOverScreen.initScreen(isPlayer1);
+    }
+    // Método para reiniciar el juego cargando la escena "Game"
+    public void inittGame()
+    {
+        SceneManager.LoadScene("Game");
+       
     }
 }
