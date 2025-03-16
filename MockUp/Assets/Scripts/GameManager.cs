@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class GameManager : MonoBehaviour
     private GameOverScreen  gameOverScreen;
     private static GameManager _instance;
 
+
+    private GameObject _playerOne;
+    private GameObject _playerTwo;
+    private GameObject _spawner;
     public static GameManager Instance
     {
         get
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     public void QuitGame()
     {
         Application.Quit();
@@ -59,15 +65,40 @@ public class GameManager : MonoBehaviour
 
     public void SetCastorMovement(bool status)
     {
-        GameObject Player1 = GameObject.Find("Player1");
-        GameObject Player2 = GameObject.Find("Player2");
-        GameObject Spawner = GameObject.Find("Spawner");
-        Player1.GetComponent<MovementComponent>().enabled = status;
-        Player1.GetComponent<PlayerInputComponent>().enabled = status;
-        Player2.GetComponent<MovementComponent>().enabled = status;
-        Player2.GetComponent<PlayerInputComponent>().enabled = status;
-        Spawner.GetComponent<Spawner>().enabled = status;
+        
+        if (_playerOne == null)
+        {
+			_playerOne = GameObject.Find("Player1");
+		}
 
+        if (_playerOne != null)
+        {
+			_playerOne.GetComponent<MovementComponent>().enabled = status;
+			_playerOne.GetComponent<PlayerInputComponent>().enabled = status;
+		}
+
+        if(_playerTwo == null)
+        {
+            _playerTwo = GameObject.Find("Player2");
+			
+		}
+       
+
+        if(_playerTwo != null){
+			_playerTwo.GetComponent<MovementComponent>().enabled = status;
+			_playerTwo.GetComponent<PlayerInputComponent>().enabled = status;
+		}
+
+        if(_spawner == null)
+        {
+			_spawner = GameObject.Find("Spawner");
+		
+		}
+
+        if(_spawner != null)
+        {
+			_spawner.GetComponent<Spawner>().enabled = status;
+		}
     }
 
 	private void Update()

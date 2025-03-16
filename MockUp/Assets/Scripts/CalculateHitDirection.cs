@@ -43,7 +43,7 @@ public class CalculateHitDirection : MonoBehaviour
 	private NumberOfPlayer _playerNumber;
 
 
-	// Par metro adicional para controlar el spin
+	// Par�metro adicional para controlar el spin
 	[SerializeField]
 	private float spinStrength = 5f; 
 
@@ -66,10 +66,6 @@ public class CalculateHitDirection : MonoBehaviour
 				{
 					Vector3 hitDirection;
 					Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
-					if (GetComponent<StickAndBottleController>() != null)
-					{
-						GetComponent<StickAndBottleController>().enabled = false;
-					}
 					if (_gamepad != null)
 					{
 						VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency, _rumbleTime);
@@ -78,7 +74,6 @@ public class CalculateHitDirection : MonoBehaviour
 					{
 						_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
 						Destroy(_particleGameObject, 1.5f);
-						Debug.Log("generacion de particulas");
 					}
 
 					// Si la lata no ha sido lanzada, la marco como lanzada y seteo su objetivo
@@ -99,11 +94,11 @@ public class CalculateHitDirection : MonoBehaviour
 					rb.velocity = hitDirection * _hitStrength;
 
 
-					// Aseg rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
-					rb.angularDrag = 0.05f;  // Esto deber a permitir un giro suave.
+					// Aseg�rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
+					rb.angularDrag = 0.05f;  // Esto deber�a permitir un giro suave.
 
 					// Aplicar giro (torque) para el "spin"
-					Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci n perpendicular para el giro
+					Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci�n perpendicular para el giro
 					rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
 				}
 			}
@@ -116,3 +111,4 @@ public class CalculateHitDirection : MonoBehaviour
 		}
 	}
 }
+
