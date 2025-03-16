@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b598575b-dbc7-4969-990f-dc69cfeef211}">
 		<property name="name">
-			<value>Golpear lata</value>
+			<value>Golpear_lata</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
