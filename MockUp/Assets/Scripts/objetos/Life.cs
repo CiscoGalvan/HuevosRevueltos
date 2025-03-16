@@ -40,8 +40,8 @@ public class Life : MonoBehaviour
         if (amount <= 0) return;
 
         currentHealth += amount;
-
-        if (currentHealth > 0)
+		SeeIfNeedChange();
+		if (currentHealth > 0)
         {
             currentHealth = initialHealth;
         }

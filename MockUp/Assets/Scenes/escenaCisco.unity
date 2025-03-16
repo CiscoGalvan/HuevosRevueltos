@@ -19596,6 +19596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Redbull
       objectReference: {fileID: 0}
+    - target: {fileID: 5185557683248995130, guid: c9ce9d031eb93814c997107bd088867d, type: 3}
+      propertyPath: _amountOfDamage
+      value: -30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

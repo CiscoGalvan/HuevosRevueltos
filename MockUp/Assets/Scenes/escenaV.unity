@@ -210,7 +210,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ff247f71b3a589469704db3cf17e3a0, type: 2}
+  - {fileID: 2100000, guid: e2e332586723e7341a455f24c648df6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2461,6 +2461,7 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: 10
   _objetosHijos: []
+  _relacionVidaObjetos: 
 --- !u!1001 &1004899715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2851,7 +2852,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ff247f71b3a589469704db3cf17e3a0, type: 2}
+  - {fileID: 2100000, guid: e2e332586723e7341a455f24c648df6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3060,7 +3061,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ff247f71b3a589469704db3cf17e3a0, type: 2}
+  - {fileID: 2100000, guid: e2e332586723e7341a455f24c648df6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3583,6 +3584,7 @@ MonoBehaviour:
   maxHealth: 60
   initialHealth: 50
   _objetosHijos: []
+  _relacionVidaObjetos: 
 --- !u!54 &1556258700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4571,7 +4573,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ff247f71b3a589469704db3cf17e3a0, type: 2}
+  - {fileID: 2100000, guid: e2e332586723e7341a455f24c648df6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
