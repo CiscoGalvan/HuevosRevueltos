@@ -5259,7 +5259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1583856
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5325,6 +5325,14 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.86717796
       objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 56.2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
       propertyPath: m_Name
       value: Castor_P1
@@ -5336,7 +5344,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1113680872}
   m_SourcePrefab: {fileID: 100100000, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
 --- !u!4 &493708345 stripped
 Transform:
@@ -11975,6 +11986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   initialHealth: 10
+  _objetosHijos: []
 --- !u!1001 &978313896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13714,6 +13726,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a03ed5c7c27926142bb29e3250a5016a, type: 3}
   m_PrefabInstance: {fileID: 2131427275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1113680871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aa95316f53ee41c478e87267b7c5d07a, type: 3}
+  m_PrefabInstance: {fileID: 493708344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1113680872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113680871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b71cb4d0d7b2a4f95980a685c290e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
 --- !u!1001 &1116100158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19012,6 +19042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 60
   initialHealth: 50
+  _objetosHijos: []
 --- !u!54 &1556258700
 Rigidbody:
   m_ObjectHideFlags: 0
