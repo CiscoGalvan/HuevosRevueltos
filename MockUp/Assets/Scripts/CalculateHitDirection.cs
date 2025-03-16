@@ -59,47 +59,55 @@ public class CalculateHitDirection : MonoBehaviour
 
 		if(damageEmitter != null)
 		{
-			Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-			if (rb != null)
+			if(damageEmitter.GetDamageAmount() > 0)
 			{
-				Vector3 hitDirection;
-				Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
-				if (_gamepad != null)
+				Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+				if (rb != null)
 				{
-					VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency, _rumbleTime);
-				}
-				if (_particlePrefab != null)
-				{
-					_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
-					Destroy(_particleGameObject, 1.5f);
-					Debug.Log("generacion de particulas");
-				}
+					Vector3 hitDirection;
+					Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
+					if (_gamepad != null)
+					{
+						VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency, _rumbleTime);
+					}
+					if (_particlePrefab != null)
+					{
+						_particleGameObject = Instantiate(_particlePrefab, hitPosition, Quaternion.identity);
+						Destroy(_particleGameObject, 1.5f);
+						Debug.Log("generacion de particulas");
+					}
 
-				// Si la lata no ha sido lanzada, la marco como lanzada y seteo su objetivo
-				if (!damageEmitter.GetHitted())
-				{
-					damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
-					damageEmitter.SetHittedObject(true);
-				}
+					// Si la lata no ha sido lanzada, la marco como lanzada y seteo su objetivo
+					if (!damageEmitter.GetHitted())
+					{
+						damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
+						damageEmitter.SetHittedObject(true);
+					}
 
-				if (currentVelocity.magnitude > 0.1f)
-				{
-					hitDirection = currentVelocity.normalized;
-				}
-				else
-				{
-					hitDirection = (collision.gameObject.transform.position - transform.position).normalized;
-				}
-				rb.velocity = hitDirection * _hitStrength;
+					if (currentVelocity.magnitude > 0.1f)
+					{
+						hitDirection = currentVelocity.normalized;
+					}
+					else
+					{
+						hitDirection = (collision.gameObject.transform.position - transform.position).normalized;
+					}
+					rb.velocity = hitDirection * _hitStrength;
 
-				
-                // Aseg�rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
-                rb.angularDrag = 0.05f;  // Esto deber�a permitir un giro suave.
 
-                // Aplicar giro (torque) para el "spin"
-                Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci�n perpendicular para el giro
-                rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
+					// Aseg�rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
+					rb.angularDrag = 0.05f;  // Esto deber�a permitir un giro suave.
+
+					// Aplicar giro (torque) para el "spin"
+					Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci�n perpendicular para el giro
+					rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
+				}
 			}
+			else 
+			{
+				Destroy(collision.gameObject);
+			}
+		
 		}
 	}
 }

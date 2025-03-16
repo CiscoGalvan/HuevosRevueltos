@@ -52,4 +52,6 @@ public class DamageEmitter : MonoBehaviour
         _wasHitted = newValue;
     }
     public bool GetHitted() => _wasHitted;
+
+    public int GetDamageAmount() => _amountOfDamage;
 }
