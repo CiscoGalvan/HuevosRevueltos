@@ -26,7 +26,6 @@ public class StickAndBottleController : MonoBehaviour
 		_randomSide = Random.Range(0, 2);
 		fase = FaseMovimiento.Cascada;
 		_capsuleCollider = GetComponent<CapsuleCollider>();
-		_capsuleCollider.isTrigger = true;
 		SetTargetPosition();
 		if (IsLeftSpawned())
 		{
@@ -130,9 +129,9 @@ public class StickAndBottleController : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnCollisionEnter(Collision other)
 	{
-		if (other.name == "Corriente")
+		if (other.gameObject.name == "Corriente")
 		{
 			fase = FaseMovimiento.Rio;
 			transform.position = new Vector3(transform.position.x, _targetPosition.y, transform.position.z);

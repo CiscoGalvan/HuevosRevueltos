@@ -14,7 +14,7 @@ public class CalculateHitDirection : MonoBehaviour
     [SerializeField]
     LayerMask mask;
 
-	
+
 
     [SerializeField]
     private float _hitStrength;
@@ -43,16 +43,13 @@ public class CalculateHitDirection : MonoBehaviour
 	private NumberOfPlayer _playerNumber;
 
 
-	// Par�metro adicional para controlar el spin
+	// Par metro adicional para controlar el spin
 	[SerializeField]
 	private float spinStrength = 5f; 
 
 	[SerializeField]
 	private float _rumbleTime;
-
-    [SerializeField]
-    GameObject caerola;
-    private void Start()
+	private void Start()
 	{
 		 _gamepad = Gamepad.current;
 	}
@@ -69,6 +66,10 @@ public class CalculateHitDirection : MonoBehaviour
 				{
 					Vector3 hitDirection;
 					Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
+					if (GetComponent<StickAndBottleController>() != null)
+					{
+						GetComponent<StickAndBottleController>().enabled = false;
+					}
 					if (_gamepad != null)
 					{
 						VibrationManager.Instance.RumblePulse(_rumbleLowFrequency, _rumbleHighFrequency, _rumbleTime);
@@ -98,20 +99,20 @@ public class CalculateHitDirection : MonoBehaviour
 					rb.velocity = hitDirection * _hitStrength;
 
 
-					// Aseg�rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
-					rb.angularDrag = 0.05f;  // Esto deber�a permitir un giro suave.
+					// Aseg rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
+					rb.angularDrag = 0.05f;  // Esto deber a permitir un giro suave.
 
 					// Aplicar giro (torque) para el "spin"
-					Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci�n perpendicular para el giro
+					Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcci n perpendicular para el giro
 					rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
 				}
 			}
 			else 
 			{
+				//Animacion/sonido
 				Destroy(collision.gameObject);
 			}
 		
 		}
 	}
 }
-

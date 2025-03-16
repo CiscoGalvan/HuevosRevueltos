@@ -5402,7 +5402,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1247491356}
-  - component: {fileID: 1247491355}
   - component: {fileID: 1247491354}
   m_Layer: 0
   m_Name: Spawner
@@ -5429,37 +5428,16 @@ MonoBehaviour:
   maxSpawnTime: 2
   paloProbability: 0.25
   ListaLatas:
-  - {fileID: 0}
-  ListaPalos:
-  - {fileID: 5978298724740140028, guid: e04b96bc864e486418452a02bb645c80, type: 3}
-  - {fileID: 5978298724740140028, guid: 9c3ad994df8972144b636dd2322b918a, type: 3}
-  - {fileID: 5978298724740140028, guid: 36268972d4de5af4e89e700ff713e261, type: 3}
-  _riverCollider: {fileID: 881238567}
---- !u!114 &1247491355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247491353}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52558b4dde3b35a43a8b4dd1daf69c09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _colliderCascadaOne: {fileID: 1115768266}
-  _colliderCascadaTwo: {fileID: 1995594761}
-  minSpawnTime: 0.5
-  maxSpawnTime: 2
-  paloProbability: 0.25
-  ListaLatas:
   - {fileID: 3524772112570284381, guid: e1145ad18596e70429003d71473e373a, type: 3}
   - {fileID: 3524772112570284381, guid: 850eec9341be14148b1bce0e0f5d3333, type: 3}
   - {fileID: 3524772112570284381, guid: 95aac671913192f4184aeeffa05d96d2, type: 3}
   - {fileID: 3524772112570284381, guid: c9ce9d031eb93814c997107bd088867d, type: 3}
   - {fileID: 3524772112570284381, guid: a439d5afc06a1c7459b3621770ad8006, type: 3}
-  ListaPalos: []
-  _riverCollider: {fileID: 0}
+  ListaPalos:
+  - {fileID: 5978298724740140028, guid: e04b96bc864e486418452a02bb645c80, type: 3}
+  - {fileID: 5978298724740140028, guid: 9c3ad994df8972144b636dd2322b918a, type: 3}
+  - {fileID: 5978298724740140028, guid: 36268972d4de5af4e89e700ff713e261, type: 3}
+  _riverCollider: {fileID: 881238567}
 --- !u!4 &1247491356
 Transform:
   m_ObjectHideFlags: 0
@@ -8180,6 +8158,7 @@ MonoBehaviour:
   maxHealth: 100
   initialHealth: 10
   _objetosHijos: []
+  _relacionVidaObjetos: 
 --- !u!54 &1680637780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9781,6 +9760,7 @@ MonoBehaviour:
   maxHealth: 60
   initialHealth: 50
   _objetosHijos: []
+  _relacionVidaObjetos: 
 --- !u!54 &2043019042
 Rigidbody:
   m_ObjectHideFlags: 0
