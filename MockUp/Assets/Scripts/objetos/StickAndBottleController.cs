@@ -2,6 +2,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class StickAndBottleController : MonoBehaviour
 {
 	public enum FaseMovimiento
@@ -9,9 +10,11 @@ public class StickAndBottleController : MonoBehaviour
 		Cascada,
 		Rio
 	}
-	
+
 	private int _randomSide;
 	private CapsuleCollider _capsuleCollider;
+	private Rigidbody _rb; // Referencia al Rigidbody
+
 	[SerializeField] public BoxCollider _riverCollider;
 	[SerializeField] private float _maxSpeed = 5f; // Velocidad máxima
 	[SerializeField] private float _steeringStrength = 2f; // Fuerza de Steering
@@ -23,23 +26,22 @@ public class StickAndBottleController : MonoBehaviour
 
 	private void Start()
 	{
+		_rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody
 		_randomSide = Random.Range(0, 2);
 		fase = FaseMovimiento.Cascada;
 		_capsuleCollider = GetComponent<CapsuleCollider>();
 		SetTargetPosition();
 		if (IsLeftSpawned())
 		{
-			//Está en el lado izquierdo
+			// Está en el lado izquierdo
 			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.min.z);
-			Debug.Log(_targetPositionCascada);
 		}
 		else
 		{
-			//Está en el lado derecho
+			// Está en el lado derecho
 			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.max.z);
-			Debug.Log(_targetPositionCascada);
 		}
 	}
 
@@ -58,24 +60,24 @@ public class StickAndBottleController : MonoBehaviour
 
 	private void ReachRiver()
 	{
-		// Limitar la velocidad a la máxima permitida
+		// Calcular la velocidad deseada limitada a la máxima permitida
 		_currentVelocity = (_targetPositionCascada - transform.position).normalized * _maxSpeed;
 
-		// Mover el objeto
-		transform.position += _currentVelocity * Time.deltaTime;
+		// Mover el objeto utilizando el Rigidbody
+		_rb.MovePosition(_rb.position + _currentVelocity * Time.deltaTime);
 
 		// Rotar hacia la dirección del movimiento
 		if (_currentVelocity.magnitude > 0.1f)
 		{
-			transform.rotation = Quaternion.LookRotation(_currentVelocity.normalized);
+			_rb.MoveRotation(Quaternion.LookRotation(_currentVelocity.normalized));
 		}
 	}
 
 	private bool IsLeftSpawned()
 	{
 		if (Vector3.Distance(transform.position, new Vector3(_riverCollider.center.x, _riverCollider.bounds.max.y, _riverCollider.bounds.min.z))
-		    <
-		    Vector3.Distance(transform.position, new Vector3(_riverCollider.center.x, _riverCollider.bounds.max.y, _riverCollider.bounds.max.z)))
+			<
+			Vector3.Distance(transform.position, new Vector3(_riverCollider.center.x, _riverCollider.bounds.max.y, _riverCollider.bounds.max.z)))
 		{
 			return true;
 		}
@@ -101,15 +103,15 @@ public class StickAndBottleController : MonoBehaviour
 		float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
 		// Definir la posición de destino con Y en 0
-		_targetPosition = new Vector3(targetX, 2 + _capsuleCollider.radius , randomZ);
+		_targetPosition = new Vector3(targetX, 2 + _capsuleCollider.radius, randomZ);
 	}
 
 	private void ApplySteering()
 	{
-		// Direccion deseada hacia el objetivo
+		// Calcular la dirección deseada hacia el objetivo
 		Vector3 desiredVelocity = (_targetPosition - transform.position).normalized * _maxSpeed;
 
-		// Fuerza de steering (diferencia entre velocidad deseada y actual)
+		// Calcular la fuerza de steering (diferencia entre la velocidad deseada y la actual)
 		Vector3 steeringForce = (desiredVelocity - _currentVelocity) * _steeringStrength * Time.deltaTime;
 
 		// Aplicar la fuerza de steering a la velocidad actual
@@ -119,13 +121,13 @@ public class StickAndBottleController : MonoBehaviour
 		_currentVelocity = Vector3.ClampMagnitude(_currentVelocity, _maxSpeed);
 		_currentVelocity.y = 0;
 
-		// Mover el objeto
-		transform.position += _currentVelocity * Time.deltaTime;
+		// Mover el objeto utilizando el Rigidbody
+		_rb.MovePosition(_rb.position + _currentVelocity * Time.deltaTime);
 
 		// Rotar hacia la dirección del movimiento
 		if (_currentVelocity.magnitude > 0.1f)
 		{
-			transform.rotation = Quaternion.LookRotation(_currentVelocity.normalized);
+			_rb.MoveRotation(Quaternion.LookRotation(_currentVelocity.normalized));
 		}
 	}
 
@@ -134,7 +136,8 @@ public class StickAndBottleController : MonoBehaviour
 		if (other.gameObject.name == "Corriente")
 		{
 			fase = FaseMovimiento.Rio;
-			transform.position = new Vector3(transform.position.x, _targetPosition.y, transform.position.z);
+			// Ajustar la posición utilizando el Rigidbody
+			_rb.position = new Vector3(transform.position.x, _targetPosition.y, transform.position.z);
 		}
 	}
 }
