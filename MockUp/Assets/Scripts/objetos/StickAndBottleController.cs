@@ -24,6 +24,11 @@ public class StickAndBottleController : MonoBehaviour
 	private Vector3 _currentVelocity;
 	public FaseMovimiento fase;
 
+
+	[SerializeField]
+	private float _livingTime = 20.0f;
+	private float _time;
+
 	private void Start()
 	{
 		_rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody
@@ -47,6 +52,13 @@ public class StickAndBottleController : MonoBehaviour
 
 	private void Update()
 	{
+		_time += Time.deltaTime;
+
+
+		if(_time >= _livingTime)
+		{
+			Destroy(this.gameObject);
+		}
 		switch (fase)
 		{
 			case FaseMovimiento.Cascada:
