@@ -85,7 +85,7 @@ public class EmergentObjectsManager : MonoBehaviour
         {
             returnValue = new Vector3(
                 Random.Range(ColliderZonaJugador1.bounds.min.x, ColliderZonaJugador1.bounds.max.x),
-                0,
+                ColliderZonaJugador1.bounds.max.y,
                 Random.Range(ColliderZonaJugador1.bounds.min.z, ColliderZonaJugador1.bounds.max.z));
         }
         return returnValue;
@@ -102,7 +102,7 @@ public class EmergentObjectsManager : MonoBehaviour
         {
             returnValue = new Vector3(
                 Random.Range(ColliderZonaJugador2.bounds.min.x, ColliderZonaJugador2.bounds.max.x),
-                0,
+                ColliderZonaJugador2.bounds.max.y,
                 Random.Range(ColliderZonaJugador2.bounds.min.z, ColliderZonaJugador2.bounds.max.z));
         }
         return returnValue;
