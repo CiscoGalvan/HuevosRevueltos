@@ -80,10 +80,6 @@ public class CalculateHitDirection : MonoBehaviour
 				{
 					damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
 					damageEmitter.SetHittedObject(true);
-					if (_playerNumber == NumberOfPlayer.PlayerOne)
-						ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Hit_Player1, volume: 1.0f);
-					if (_playerNumber == NumberOfPlayer.PlayerTwo)
-						ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Hit_Player2, volume: 1.0f);
 				}
 
 				if (currentVelocity.magnitude > 0.1f)

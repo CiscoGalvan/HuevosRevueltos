@@ -41,12 +41,6 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
-    public void Start()
-    {
-		if(SceneManager.GetActiveScene().name == "initialMenu")
-            ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Ambience, volume: 1.0f);
-    }
-
     public void EndScene(GameObject g)
     {
         if (g.CompareTag("presa1"))
