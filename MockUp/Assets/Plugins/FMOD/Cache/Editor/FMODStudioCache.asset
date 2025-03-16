@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: ../Fmod ComJamOn/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638777232702321261
+  lastModified: 638777292580504408
   FileSizes:
   - Name: Desktop
     Value: 1198
@@ -213,7 +213,7 @@ MonoBehaviour:
   - {fileID: 4052604334968454142}
   StringsBanks:
   - {fileID: -6114663619184148076}
-  cacheTime: 638777232702321261
+  cacheTime: 638777292580504408
   cacheVersion: 131623
 --- !u!114 &1319524962834167566
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   Path: ../Fmod ComJamOn/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638777232702301595
+  lastModified: 638777292580254309
   FileSizes:
   - Name: Desktop
     Value: 2471872
