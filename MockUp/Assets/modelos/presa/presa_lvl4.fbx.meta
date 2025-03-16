@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 8b91d34794a47bf45bb401492d97e30c
+guid: a03ed5c7c27926142bb29e3250a5016a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: marronPalo1
+    second: {fileID: 2100000, guid: 12b6a348339644a46a8633a1937f51fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
