@@ -42,6 +42,11 @@ public class CalculateHitDirection : MonoBehaviour
 	[SerializeField]
 	private NumberOfPlayer _playerNumber;
 
+
+	// Parámetro adicional para controlar el spin
+	[SerializeField]
+	private float spinStrength = 5f; 
+
 	[SerializeField]
 	private float _rumbleTime;
 	private void Start()
@@ -86,8 +91,16 @@ public class CalculateHitDirection : MonoBehaviour
 					hitDirection = (collision.gameObject.transform.position - transform.position).normalized;
 				}
 				rb.velocity = hitDirection * _hitStrength;
+
+				
+                // Asegúrate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
+                rb.angularDrag = 0.05f;  // Esto debería permitir un giro suave.
+
+                // Aplicar giro (torque) para el "spin"
+                Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Dirección perpendicular para el giro
+                rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
 			}
 		}
 	}
-
 }
+

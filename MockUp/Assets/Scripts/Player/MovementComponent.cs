@@ -40,10 +40,15 @@ public class MovementComponent : MonoBehaviour
 		}
 
 		transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
-		// Rotar en la direcci�n del movimiento
-		if (_currentVelocity.magnitude > 0.1f) // Evita rotaciones cuando est� quieto
+		if (_currentVelocity.magnitude > 0.1f) // Evita rotaciones cuando está quieto
 		{
-			transform.rotation = Quaternion.LookRotation(_currentVelocity.normalized);
+			Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity.normalized);
+
+			// Determinar el ajuste de rotación según la capa
+			float rotationOffset = (gameObject.layer == LayerMask.NameToLayer("PlayerOne")) ? -90f : 90f;
+
+			Quaternion adjustedRotation = targetRotation * Quaternion.Euler(0, rotationOffset, 0);
+			transform.rotation = adjustedRotation;
 		}
 	}
 	public void setSpeed(float s)

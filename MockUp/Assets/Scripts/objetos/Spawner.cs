@@ -4,67 +4,89 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // creación de enemigos
-    [SerializeField]
-    List<GameObject> _prefabsobjects;
-    [SerializeField]
-    float amountoftime = 1.0f;
-    float currenttime;
+	[SerializeField] private BoxCollider _colliderCascadaOne;
+	[SerializeField] private BoxCollider _colliderCascadaTwo;
 
-    //direccion de los enemigos
-    
-    [SerializeField]
-    private Transform pointCentreRight;
+	[Header("Spawn Settings")]
+	[SerializeField] private float minSpawnTime = 3f; // Tiempo mínimo entre spawns
+	[SerializeField] private float maxSpawnTime = 7f; // Tiempo máximo entre spawns
+	[SerializeField] private float paloProbability = 0.5f; // Probabilidad de generar un palo
 
-    [SerializeField]
-    private Transform pointCentreLeft;
+	[Header("Prefabs")]
+	[SerializeField] private List<GameObject> ListaLatas; // Lista de prefabs de latas
+	[SerializeField] private GameObject _paloPrefab; // Prefab del palo
 
-    //[SerializeField]
-    //private Transform SpawnPoint;
+	private bool _canSpawnLata = true; // Controla si se puede generar una nueva lata
 
-    [SerializeField]
-    private Transform pointRight;
+	void Start()
+	{
+		StartCoroutine(SpawnRoutine());
+	}
 
-    [SerializeField]
-    private Transform pointLeft;
+	IEnumerator SpawnRoutine()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime)); // Espera aleatoria
 
-    [SerializeField]
-    private float minForce = 1.0f;
+			GameObject objetoAInstanciar = GetRandomObject();
 
-    [SerializeField]
-    private float maxForce = 5.0f;
-    // Update is called once per frame
-    void Update()
-    {
-        currenttime += Time.deltaTime;
-        if (currenttime >= amountoftime)
-        {
-            currenttime -= amountoftime;
-            //random de la lista 
-            if (_prefabsobjects.Count > 0)
-            {
-                int randomIndex = Random.Range(0, _prefabsobjects.Count); //objeto random
-                GameObject newObj = Instantiate(_prefabsobjects[randomIndex], transform.position, Quaternion.identity); //creación
+			if (objetoAInstanciar != null)
+			{
+				Vector3 spawnPosition = Random.Range(0, 2) == 0 ? GetRandomPointInZone1() : GetRandomPointInZone2();
+				Instantiate(objetoAInstanciar, spawnPosition, Quaternion.identity);
 
-                Rigidbody rb = newObj.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    Vector3 direction = Vector3.left;
-                    if (Random.value >= 0.5f)
-                    {
-                        direction = (Vector3.Lerp(pointRight.position, pointCentreLeft.position,Random.value) - transform.position).normalized;
-                    }
-                    else direction = (Vector3.Lerp(pointLeft.position, pointCentreLeft.position, Random.value) - transform.position).normalized;
-                    // Dirección aleatoria entre pointA y pointB
+				// Si es una lata, activar cooldown
+				if (ListaLatas.Contains(objetoAInstanciar))
+				{
+					_canSpawnLata = false;
+					StartCoroutine(ResetLataCooldown());
+				}
+			}
+		}
+	}
 
+	// Retorna un objeto aleatorio (palo o lata según probabilidad)
+	GameObject GetRandomObject()
+	{
+		if (Random.value < paloProbability) // Probabilidad de generar un palo
+		{
+			return _paloPrefab;
+		}
+		else if (_canSpawnLata && ListaLatas.Count > 0) // Solo generar lata si está permitido
+		{
+			return ListaLatas[Random.Range(0, ListaLatas.Count)];
+		}
 
-                    // Fuerza aleatoria dentro del rango
-                    float randomForce = Random.Range(minForce, maxForce);
+		return null; // No genera nada si no hay objetos válidos
+	}
 
-                    rb.AddForce(direction * randomForce, ForceMode.Impulse);
-                }
-            }
-        }
-    }
+	// Retorna un punto aleatorio en la zona 1
+	Vector3 GetRandomPointInZone1()
+	{
+		return _colliderCascadaOne != null
+			? new Vector3(
+				Random.Range(_colliderCascadaOne.bounds.min.x, _colliderCascadaOne.bounds.max.x),
+				0,
+				Random.Range(_colliderCascadaOne.bounds.min.z, _colliderCascadaOne.bounds.max.z))
+			: Vector3.zero;
+	}
+
+	// Retorna un punto aleatorio en la zona 2
+	Vector3 GetRandomPointInZone2()
+	{
+		return _colliderCascadaTwo != null
+			? new Vector3(
+				Random.Range(_colliderCascadaTwo.bounds.min.x, _colliderCascadaTwo.bounds.max.x),
+				0,
+				Random.Range(_colliderCascadaTwo.bounds.min.z, _colliderCascadaTwo.bounds.max.z))
+			: Vector3.zero;
+	}
+
+	// Corrutina para permitir la generación de otra lata después de un tiempo
+	IEnumerator ResetLataCooldown()
+	{
+		yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
+		_canSpawnLata = true;
+	}
 }
-
