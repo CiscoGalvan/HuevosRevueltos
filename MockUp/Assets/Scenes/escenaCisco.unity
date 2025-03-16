@@ -18944,7 +18944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb9dc427e62fab4cbf33453379f4434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   initialHealth: 10
   _objetosHijos:
   - {fileID: 1056214358}
@@ -30312,7 +30312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  initialHealth: 100
+  initialHealth: 50
   _objetosHijos:
   - {fileID: 285501160}
   - {fileID: 1317916128}
