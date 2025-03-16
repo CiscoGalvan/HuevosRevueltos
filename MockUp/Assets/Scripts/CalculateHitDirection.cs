@@ -56,11 +56,7 @@ public class CalculateHitDirection : MonoBehaviour
 		{
 			Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
 			if (rb != null)
-			{	
-				if(HitSfx != null)
-				{
-					ft_AudioManager.Instance.PlaySFX(HitSfx, hitVolume);
-				}
+			{
 				Vector3 hitDirection;
 				Vector3 hitPosition = collision.collider.ClosestPoint(collision.gameObject.transform.position);
 				if (_gamepad != null)
