@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{fc837e4d-45f8-4f35-bf87-c5b9bebe5e9f}">
 		<property name="name">
-			<value>Castor aturdido (2)</value>
+			<value>Castor_aturdido(2)</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
