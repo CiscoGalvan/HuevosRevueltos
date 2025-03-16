@@ -16,7 +16,7 @@ public class StickAndBottleController : MonoBehaviour
 	private Rigidbody _rb; // Referencia al Rigidbody
 
 	[SerializeField] public BoxCollider _riverCollider;
-	[SerializeField] private float _maxSpeed = 5f; // Velocidad máxima
+	[SerializeField] private float _maxSpeed = 5f; // Velocidad mï¿½xima
 	[SerializeField] private float _steeringStrength = 2f; // Fuerza de Steering
 
 	private Vector3 _targetPosition;
@@ -38,13 +38,13 @@ public class StickAndBottleController : MonoBehaviour
 		SetTargetPosition();
 		if (IsLeftSpawned())
 		{
-			// Está en el lado izquierdo
+			// Estï¿½ en el lado izquierdo
 			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.min.z);
 		}
 		else
 		{
-			// Está en el lado derecho
+			// Estï¿½ en el lado derecho
 			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.max.z);
 		}
@@ -72,13 +72,13 @@ public class StickAndBottleController : MonoBehaviour
 
 	private void ReachRiver()
 	{
-		// Calcular la velocidad deseada limitada a la máxima permitida
+		// Calcular la velocidad deseada limitada a la mï¿½xima permitida
 		_currentVelocity = (_targetPositionCascada - transform.position).normalized * _maxSpeed;
 
 		// Mover el objeto utilizando el Rigidbody
 		_rb.MovePosition(_rb.position + _currentVelocity * Time.deltaTime);
 
-		// Rotar hacia la dirección del movimiento
+		// Rotar hacia la direcciï¿½n del movimiento
 		if (_currentVelocity.magnitude > 0.1f)
 		{
 			_rb.MoveRotation(Quaternion.LookRotation(_currentVelocity.normalized));
@@ -105,22 +105,22 @@ public class StickAndBottleController : MonoBehaviour
 			return;
 		}
 
-		// Obtener los límites del BoxCollider
+		// Obtener los lï¿½mites del BoxCollider
 		Bounds bounds = _riverCollider.bounds;
 
-		// Determinar la posición objetivo en X
+		// Determinar la posiciï¿½n objetivo en X
 		float targetX = (_randomSide == 0) ? bounds.min.x : bounds.max.x;
 
-		// Determinar una posición aleatoria en Z dentro del BoxCollider
+		// Determinar una posiciï¿½n aleatoria en Z dentro del BoxCollider
 		float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
-		// Definir la posición de destino con Y en 0
+		// Definir la posiciï¿½n de destino con Y en 0
 		_targetPosition = new Vector3(targetX, 2 + _capsuleCollider.radius, randomZ);
 	}
 
 	private void ApplySteering()
 	{
-		// Calcular la dirección deseada hacia el objetivo
+		// Calcular la direcciï¿½n deseada hacia el objetivo
 		Vector3 desiredVelocity = (_targetPosition - transform.position).normalized * _maxSpeed;
 
 		// Calcular la fuerza de steering (diferencia entre la velocidad deseada y la actual)
@@ -129,14 +129,14 @@ public class StickAndBottleController : MonoBehaviour
 		// Aplicar la fuerza de steering a la velocidad actual
 		_currentVelocity += steeringForce;
 
-		// Limitar la velocidad a la máxima permitida
+		// Limitar la velocidad a la mï¿½xima permitida
 		_currentVelocity = Vector3.ClampMagnitude(_currentVelocity, _maxSpeed);
 		_currentVelocity.y = 0;
 
 		// Mover el objeto utilizando el Rigidbody
 		_rb.MovePosition(_rb.position + _currentVelocity * Time.deltaTime);
 
-		// Rotar hacia la dirección del movimiento
+		// Rotar hacia la direcciï¿½n del movimiento
 		if (_currentVelocity.magnitude > 0.1f)
 		{
 			_rb.MoveRotation(Quaternion.LookRotation(_currentVelocity.normalized));
@@ -148,7 +148,7 @@ public class StickAndBottleController : MonoBehaviour
 		if (other.gameObject.name == "Corriente")
 		{
 			fase = FaseMovimiento.Rio;
-			// Ajustar la posición utilizando el Rigidbody
+			// Ajustar la posiciï¿½n utilizando el Rigidbody
 			_rb.position = new Vector3(transform.position.x, _targetPosition.y, transform.position.z);
 		}
 	}

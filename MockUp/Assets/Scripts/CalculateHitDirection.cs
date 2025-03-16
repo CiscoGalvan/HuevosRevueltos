@@ -83,11 +83,16 @@ public class CalculateHitDirection : MonoBehaviour
 					{
 						damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
 						_cacerola.SetActive(false);
+						ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Rebound, volume: 1.0f);
 					}
 					else if (!damageEmitter.GetHitted())
 					{
 						damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
 						damageEmitter.SetHittedObject(true);
+						if (_playerNumber == NumberOfPlayer.PlayerOne)
+							ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Hit_Player1, volume: 1.0f);
+						else
+							ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Hit_Player2, volume: 1.0f);
 					}
 
 					if (currentVelocity.magnitude > 0.1f)

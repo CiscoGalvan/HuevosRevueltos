@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c59cfc35-99da-4e5d-8b88-57f39cc95e87}">
+		<property name="assetPath">
+			<value>SFX/Castor aturdido 2a versión.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8701875000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0e4f9c7-0d13-414c-8e7e-dadcb083cecb}</destination>
+		</relationship>
+	</object>
+</objects>

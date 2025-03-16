@@ -35,6 +35,7 @@ public class Life : MonoBehaviour
     {
         if (amount <= 0 || isDead) return;
         currentHealth -= amount;
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.DamDmg, volume: 1.0f);
         SeeIfNeedChange();
         if (currentHealth <= 0)
         {
@@ -48,6 +49,7 @@ public class Life : MonoBehaviour
         if (amount <= 0) return;
 
         currentHealth += amount;
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.DamHeal, volume: 1.0f);
 		SeeIfNeedChange();
 		if (currentHealth > 0)
         {
@@ -64,7 +66,7 @@ public class Life : MonoBehaviour
 		if (_relacionVidaObjetos == null || _relacionVidaObjetos.Count == 0) return;
 		int closestIndex = 0;
 		int closestDifference = Mathf.Abs(_relacionVidaObjetos[0] - currentHealth);
-		// Buscar el índice del valor más cercano a currentHealth en _relacionVidaObjetos
+		// Buscar el ï¿½ndice del valor mï¿½s cercano a currentHealth en _relacionVidaObjetos
 		for (int i = 1; i < _relacionVidaObjetos.Count; i++)
 		{
 			int difference = Mathf.Abs(_relacionVidaObjetos[i] - currentHealth);
@@ -84,11 +86,11 @@ public class Life : MonoBehaviour
 		{
 			if (j == i)
 			{
-				_objetosHijos[j].SetActive(true); // Activa solo el objeto con el índice i
+				_objetosHijos[j].SetActive(true); // Activa solo el objeto con el ï¿½ndice i
 			}
             else
             {
-				_objetosHijos[j].SetActive(false); // Activa solo el objeto con el índice i
+				_objetosHijos[j].SetActive(false); // Activa solo el objeto con el ï¿½ndice i
 			}
 		}
 	}

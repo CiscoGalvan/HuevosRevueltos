@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "initialMenu")
+            ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Ambience, volume: 1.0f);
+    }
     
     public void QuitGame()
     {
@@ -59,6 +64,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(bool isPlayer1)
     {
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Win, volume: 1.0f);
 		MoveToPlayerPoint playerPoint = Camera.main.gameObject.GetComponent<MoveToPlayerPoint>();
         Debug.Log(playerPoint);
 		if (isPlayer1)
@@ -155,12 +161,12 @@ public class GameManager : MonoBehaviour
 	// M�todo para reiniciar el juego cargando la escena "Game"
 	private void InitGame()
     {
+        ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Music, volume: 1.0f);
         SceneManager.LoadScene("GameFinal");  
     }
 
     public void GoToMenu()
     {
 		SceneManager.LoadScene("initialMenu"); 
-
 	}
 }

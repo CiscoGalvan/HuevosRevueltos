@@ -38,6 +38,7 @@ public class Countdown : MonoBehaviour
         Two.SetActive(false);
         One.SetActive(false);
         Fight.SetActive(false);
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start, volume: 1.0f);
     }
     private void SetTwo()
     {
@@ -45,6 +46,7 @@ public class Countdown : MonoBehaviour
         Two.SetActive(true);
         One.SetActive(false);
         Fight.SetActive(false);
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start2, volume: 1.0f);
     }
     private void SetOne()
     {
@@ -52,6 +54,7 @@ public class Countdown : MonoBehaviour
         Two.SetActive(false);
         One.SetActive(true);
         Fight.SetActive(false);
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start3, volume: 1.0f);
     }
 
     private void SetFight()
@@ -60,6 +63,7 @@ public class Countdown : MonoBehaviour
         Two.SetActive(false);
         One.SetActive(false);
         Fight.SetActive(true);
+        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start4, volume: 1.0f);
     }
     private void Update()
     {

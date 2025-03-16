@@ -77,11 +77,13 @@ public class SpeedModifier : powerup
 
         if (increase)
         {
+            ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Berry, volume: 1.0f);
             playerMovement.setSpeed(originalSpeed * speedFactor, increase) ;
             playerMovement.setmaxSpeed(originalmaxSpeed * speedFactor) ;
         }
         else
         {
+            ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Freeze, volume: 1.0f);
             playerMovement.setSpeed(originalSpeed / speedFactor, increase);
             playerMovement.setmaxSpeed(originalmaxSpeed / speedFactor);
 

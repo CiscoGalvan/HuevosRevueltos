@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{31f7dd30-5797-4d88-a8fa-26d5b4db0216}">
+		<property name="assetPath">
+			<value>SFX/Sonido ambiente 2a versión.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>65.5576875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0e4f9c7-0d13-414c-8e7e-dadcb083cecb}</destination>
+		</relationship>
+	</object>
+</objects>

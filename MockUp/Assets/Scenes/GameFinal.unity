@@ -5201,6 +5201,105 @@ MonoBehaviour:
   _moveSpeed: 2
   _rotationSpeed: 2
   _cameraDistance: 10
+--- !u!1 &1286561665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286561667}
+  - component: {fileID: 1286561666}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1286561666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286561665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 697b258297015754dae9febcc6bfa70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList:
+  - audioType: 0
+    eventPath: event:/Music
+    volume: 1
+  - audioType: 1
+    eventPath: event:/Ambience
+    volume: 1
+  - audioType: 2
+    eventPath: event:/Hit_Player1
+    volume: 1
+  - audioType: 3
+    eventPath: event:/Hit_Player2
+    volume: 1
+  - audioType: 4
+    eventPath: event:/Stun
+    volume: 1
+  - audioType: 5
+    eventPath: event:/Pan
+    volume: 1
+  - audioType: 6
+    eventPath: event:/DamHeal
+    volume: 1
+  - audioType: 7
+    eventPath: event:/DamDmg
+    volume: 1
+  - audioType: 8
+    eventPath: event:/Freeze
+    volume: 1
+  - audioType: 9
+    eventPath: event:/Berry
+    volume: 1
+  - audioType: 10
+    eventPath: event:/Start
+    volume: 1
+  - audioType: 11
+    eventPath: event:/Start2
+    volume: 1
+  - audioType: 12
+    eventPath: event:/Start3
+    volume: 1
+  - audioType: 13
+    eventPath: event:/Start4
+    volume: 1
+  - audioType: 14
+    eventPath: event:/Win
+    volume: 1
+  - audioType: 15
+    eventPath: event:/Rebound
+    volume: 1
+  - audioType: 16
+    eventPath: event:/Splash
+    volume: 1
+  - audioType: 17
+    eventPath: event:/Sink
+    volume: 1
+--- !u!4 &1286561667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286561665}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1287916008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9727,3 +9826,4 @@ SceneRoots:
   - {fileID: 396127211}
   - {fileID: 1234682495}
   - {fileID: 1745068513}
+  - {fileID: 1286561667}

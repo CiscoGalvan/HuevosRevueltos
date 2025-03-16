@@ -38,6 +38,7 @@ public class StunPlayerComponent : MonoBehaviour
                 &&
                 (_cacerola != null && !_cacerola.activeSelf))
 			{
+                ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Stun, volume: 1.0f);
 			
                 SetPlayerStunned(true, damageEmitter.GetStunnedTime());
 

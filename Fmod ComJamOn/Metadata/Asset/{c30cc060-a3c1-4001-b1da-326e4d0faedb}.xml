@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{c30cc060-a3c1-4001-b1da-326e4d0faedb}">
+		<property name="assetPath">
+			<value>SFX/Sonido de inicio/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0e4f9c7-0d13-414c-8e7e-dadcb083cecb}</destination>
+		</relationship>
+	</object>
+</objects>
