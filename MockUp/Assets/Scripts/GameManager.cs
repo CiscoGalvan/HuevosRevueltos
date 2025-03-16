@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameManager : MonoBehaviour
 {
@@ -105,10 +104,16 @@ public class GameManager : MonoBehaviour
 	{
         if(SceneManager.GetActiveScene().name == "initialMenu")
         {
-            if((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
+
+			if (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame)
+			{
+				QuitGame();
+			}
+			else if ((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
             {
 				InitGame();
 			}
+           
         }
 	}
     private bool AnyGamepadButtonPressed()
@@ -117,7 +122,6 @@ public class GameManager : MonoBehaviour
             Gamepad.current.buttonNorth.wasPressedThisFrame || 
             Gamepad.current.buttonWest.wasPressedThisFrame || 
             Gamepad.current.buttonEast.wasPressedThisFrame || 
-            Gamepad.current.startButton.wasPressedThisFrame ||
             Gamepad.current.selectButton.wasPressedThisFrame ||
             Gamepad.current.leftShoulder.wasPressedThisFrame ||
             Gamepad.current.rightShoulder.wasPressedThisFrame ||
