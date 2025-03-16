@@ -7,7 +7,7 @@ public class SpeedModifier : powerup
 	// Start is called before the first frame update
 	[Tooltip("Booleano que indica si la velocidad incrementa o disminuye")]
 	[SerializeField] private bool increase = true;
-	[Tooltip("Factor por el que se multiplicará en caso de aumentar y dividirá la velocidad en caso de disminuir")]
+	[Tooltip("Factor por el que se multiplicarï¿½ en caso de aumentar y dividirï¿½ la velocidad en caso de disminuir")]
 	[SerializeField] private float speedFactor = 1.5f; 
     private MovementComponent playerMovement;
     private float originalSpeed;
@@ -25,7 +25,7 @@ public class SpeedModifier : powerup
         }
         else
         {
-            Debug.LogError("SpeedModifier: No se encontró el script PlayerMovement en el objeto.");
+            Debug.LogError("SpeedModifier: No se encontrï¿½ el script PlayerMovement en el objeto.");
         }
         
 
@@ -40,8 +40,12 @@ public class SpeedModifier : powerup
             playerMovement.setmaxSpeed(originalmaxSpeed / speedFactor);
 
         }
-        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        this.gameObject.GetComponent<Collider>().enabled = false;
+
+        List<MeshRenderer> meshes = this.gameObject.GetComponent<InitializeEmergentObject3D>().MeshRenderers;
+        foreach (MeshRenderer mesh in meshes)
+        {
+            mesh.enabled = false;
+        }
     }
 
     public override void Resetobj()

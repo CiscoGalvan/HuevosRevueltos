@@ -19,11 +19,13 @@ public class MovementComponent : MonoBehaviour
 
 	private Vector3 _currentVelocity = Vector3.zero;
 
+	private float initialSpeed;
 
 	private StunPlayerComponent _stunPlayerComponent;
 	private void Start()
 	{
 		_stunPlayerComponent = GetComponent<StunPlayerComponent>();
+		initialSpeed = _speed;
 	}
 	public void SetMovementDirection(Vector2 direction)
 	{
@@ -64,11 +66,12 @@ public class MovementComponent : MonoBehaviour
     public float getmaxSpeed()
     {
         return _maxSpeed;
-
     }
     public void setmaxSpeed(float s)
     {
-        _maxSpeed = s;
-
+	    if (_maxSpeed < initialSpeed * 3)
+	    {
+			_maxSpeed = s;
+	    }
     }
 }

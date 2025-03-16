@@ -4,13 +4,11 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(MeshFilter))]
 public class InitializeEmergentObject3D : MonoBehaviour
 {
     Animator animator;
     BoxCollider boxCollider;
-    List<MeshRenderer> MeshRenderers = new List<MeshRenderer>();
+    public List<MeshRenderer> MeshRenderers = new List<MeshRenderer>();
     MeshFilter MeshFilter;
     SpriteRenderer spriteRendererShadow;
     public float timeTimer = 8;

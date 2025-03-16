@@ -2534,6 +2534,16 @@ MonoBehaviour:
     maxTime: 10
     remainingTimeZone1: 0
     remainingTimeZone2: 0
+  - objeto: {fileID: 8867748311001679201, guid: 17eff74a0d48aef4da41269b184e3dae, type: 3}
+    minTime: 5
+    maxTime: 10
+    remainingTimeZone1: 0
+    remainingTimeZone2: 0
+  - objeto: {fileID: 8867748311001679201, guid: 45cade4aca0a48a409f02ac36ba109bd, type: 3}
+    minTime: 5
+    maxTime: 10
+    remainingTimeZone1: 0
+    remainingTimeZone2: 0
 --- !u!4 &789672347
 Transform:
   m_ObjectHideFlags: 0
@@ -4645,6 +4655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd810f96e988043a98568b438aef39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cacerola: {fileID: 1951918311}
 --- !u!114 &1234682487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7277,6 +7288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd810f96e988043a98568b438aef39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cacerola: {fileID: 1070422580}
 --- !u!114 &1745068506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8399,6 +8411,7 @@ MonoBehaviour:
   _maxSpeed: 5
   _steeringStrength: 2
   fase: 0
+  _livingTime: 20
 --- !u!23 &2018764225
 MeshRenderer:
   m_ObjectHideFlags: 0
