@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{ff3cba00-b9ea-40ec-bd82-2c80bad4448e}">
 		<property name="name">
-			<value>Sonido_objeto_hundiendose</value>
+			<value>Sink</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
