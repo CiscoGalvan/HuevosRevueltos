@@ -37,8 +37,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-	public void Start()
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void Start()
     {
 		if(SceneManager.GetActiveScene().name == "initialMenu")
             ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Ambience, volume: 1.0f);
