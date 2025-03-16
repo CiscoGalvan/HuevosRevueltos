@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8d1278b8-357e-4d61-836b-c5ca440d0433}">
 		<property name="name">
-			<value>Reforzar_presa</value>
+			<value>DamHeal</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
