@@ -71,7 +71,8 @@ public class GameManager : MonoBehaviour
 			_playerTwo = GameObject.Find("Player2");
 			playerPoint.MoveObjectToWinningPoint(_playerTwo);
 		}
-    }
+		gameOverScreen.initScreen(isPlayer1);
+	}
 
     public void SetCastorMovement(bool status)
     {
@@ -125,6 +126,13 @@ public class GameManager : MonoBehaviour
 				InitGame();
 			}  
         }
+        else if(SceneManager.GetActiveScene().name == "CreditsScene")
+        {
+			if (Gamepad.current != null && Gamepad.current.startButton.wasPressedThisFrame)
+			{
+                GoToMenu();
+			}
+		}
 	}
     private bool AnyGamepadButtonPressed()
     {
@@ -143,4 +151,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");  
     }
+
+    public void GoToMenu()
+    {
+		SceneManager.LoadScene("initialMenu"); 
+
+	}
 }

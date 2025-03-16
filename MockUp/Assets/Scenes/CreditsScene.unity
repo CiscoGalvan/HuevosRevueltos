@@ -660,7 +660,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1555964610}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: GoToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 043adfa6829e04c4c87cb1619deebdb7, type: 3}
+  m_Texture: {fileID: 2800000, guid: e0742309388804147be650f9b89e9298, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
