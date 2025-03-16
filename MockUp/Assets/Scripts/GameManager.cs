@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
+	public void Start()
+    {
+		if(SceneManager.GetActiveScene().name == "initialMenu")
+            ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Ambience, volume: 1.0f);
+    }
 
     public void EndScene(GameObject g)
     {
@@ -77,7 +83,7 @@ public class GameManager : MonoBehaviour
             Gamepad.current.leftTrigger.wasPressedThisFrame ||
             Gamepad.current.rightTrigger.wasPressedThisFrame;
 	}
-	// Método para reiniciar el juego cargando la escena "Game"
+	// Mï¿½todo para reiniciar el juego cargando la escena "Game"
 	private void InitGame()
     {
         SceneManager.LoadScene("Game");  

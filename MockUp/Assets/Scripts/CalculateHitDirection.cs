@@ -43,7 +43,7 @@ public class CalculateHitDirection : MonoBehaviour
 	private NumberOfPlayer _playerNumber;
 
 
-	// Parámetro adicional para controlar el spin
+	// Parï¿½metro adicional para controlar el spin
 	[SerializeField]
 	private float spinStrength = 5f; 
 
@@ -80,6 +80,10 @@ public class CalculateHitDirection : MonoBehaviour
 				{
 					damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
 					damageEmitter.SetHittedObject(true);
+					if (_playerNumber == NumberOfPlayer.PlayerOne)
+						ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Hit_Player1, volume: 1.0f);
+					if (_playerNumber == NumberOfPlayer.PlayerTwo)
+						ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Hit_Player2, volume: 1.0f);
 				}
 
 				if (currentVelocity.magnitude > 0.1f)
@@ -93,11 +97,11 @@ public class CalculateHitDirection : MonoBehaviour
 				rb.velocity = hitDirection * _hitStrength;
 
 				
-                // Asegúrate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
-                rb.angularDrag = 0.05f;  // Esto debería permitir un giro suave.
+                // Asegï¿½rate de que el Rigidbody tenga configurado un valor bajo de "Angular Drag"
+                rb.angularDrag = 0.05f;  // Esto deberï¿½a permitir un giro suave.
 
                 // Aplicar giro (torque) para el "spin"
-                Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Dirección perpendicular para el giro
+                Vector3 spinDirection = Vector3.Cross(hitDirection, Vector3.up); // Direcciï¿½n perpendicular para el giro
                 rb.AddTorque(spinDirection * spinStrength, ForceMode.Impulse);
 			}
 		}
