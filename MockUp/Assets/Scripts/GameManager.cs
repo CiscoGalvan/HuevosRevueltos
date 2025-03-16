@@ -61,20 +61,13 @@ public class GameManager : MonoBehaviour
     {
         GameObject Player1 = GameObject.Find("Player1");
         GameObject Player2 = GameObject.Find("Player2");
+        GameObject Spawner = GameObject.Find("Spawner");
         Player1.GetComponent<MovementComponent>().enabled = status;
         Player1.GetComponent<PlayerInputComponent>().enabled = status;
+        Player2.GetComponent<MovementComponent>().enabled = status;
         Player2.GetComponent<PlayerInputComponent>().enabled = status;
-        /*
-        GameObject[] allGameObjects = FindObjectsOfType<GameObject>();
-        for(int i = 0; i < allGameObjects.Length; i++)
-        {
-            allGameObjects[i].SetActive(status);
-        }
-        */
-        //GameObject Fondo = GameObject.Find("Fondo");
-        //GameObject Countdown = GameObject.Find("CountdownCanvas");
-        //Fondo.SetActive(true);
-        //Countdown.SetActive(true);
+        Spawner.GetComponent<Spawner>().enabled = status;
+
     }
 
 	private void Update()
