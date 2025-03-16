@@ -23,7 +23,15 @@ public class Life : MonoBehaviour
         SeeIfNeedChange();
 	}
 
-    public void Damage(int amount)
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.T))
+		{
+            Debug.Log(this.gameObject);
+			GameManager.Instance.EndScene(this.gameObject);
+		}
+	}
+	public void Damage(int amount)
     {
         if (amount <= 0 || isDead) return;
         currentHealth -= amount;

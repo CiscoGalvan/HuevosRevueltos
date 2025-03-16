@@ -57,9 +57,20 @@ public class GameManager : MonoBehaviour
             GameOver(false);
         }
     }
-    public void GameOver(bool isPlayer1) {
-      
-        gameOverScreen.initScreen(isPlayer1);
+    public void GameOver(bool isPlayer1)
+    {
+		MoveToPlayerPoint playerPoint = Camera.main.gameObject.GetComponent<MoveToPlayerPoint>();
+        Debug.Log(playerPoint);
+		if (isPlayer1)
+        {
+			_playerOne = GameObject.Find("Player1");
+			playerPoint.MoveObjectToWinningPoint(_playerOne);
+		}
+        else
+		{
+			_playerTwo = GameObject.Find("Player2");
+			playerPoint.MoveObjectToWinningPoint(_playerTwo);
+		}
     }
 
     public void SetCastorMovement(bool status)
@@ -112,8 +123,7 @@ public class GameManager : MonoBehaviour
 			else if ((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
             {
 				InitGame();
-			}
-           
+			}  
         }
 	}
     private bool AnyGamepadButtonPressed()
