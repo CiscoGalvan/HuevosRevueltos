@@ -60,6 +60,26 @@ public class GameManager : MonoBehaviour
         gameOverScreen.initScreen(isPlayer1);
     }
 
+    public void SetCastorMovement(bool status)
+    {
+        GameObject Player1 = GameObject.Find("Player1");
+        GameObject Player2 = GameObject.Find("Player2");
+        Player1.GetComponent<MovementComponent>().enabled = status;
+        Player1.GetComponent<PlayerInputComponent>().enabled = status;
+        Player2.GetComponent<PlayerInputComponent>().enabled = status;
+        /*
+        GameObject[] allGameObjects = FindObjectsOfType<GameObject>();
+        for(int i = 0; i < allGameObjects.Length; i++)
+        {
+            allGameObjects[i].SetActive(status);
+        }
+        */
+        //GameObject Fondo = GameObject.Find("Fondo");
+        //GameObject Countdown = GameObject.Find("CountdownCanvas");
+        //Fondo.SetActive(true);
+        //Countdown.SetActive(true);
+    }
+
 	private void Update()
 	{
         if(SceneManager.GetActiveScene().name == "initialMenu")
