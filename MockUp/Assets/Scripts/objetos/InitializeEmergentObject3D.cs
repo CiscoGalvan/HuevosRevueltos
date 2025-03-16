@@ -1,16 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(SpriteBillboard))]
 public class InitializeEmergentObject3D : MonoBehaviour
 {
     Animator animator;
     BoxCollider boxCollider;
-    MeshRenderer MeshRenderer;
+    List<MeshRenderer> MeshRenderers = new List<MeshRenderer>();
     MeshFilter MeshFilter;
     SpriteRenderer spriteRendererShadow;
+    public float timeTimer = 8;
+    private float remainingTime = 0; 
 
     private void Reset()
     {
@@ -26,8 +30,11 @@ public class InitializeEmergentObject3D : MonoBehaviour
         }
         boxCollider = GetComponent<BoxCollider>();
         boxCollider.enabled = false;
-        MeshRenderer = GetComponent<MeshRenderer>();
-        MeshRenderer.enabled = false;
+        MeshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
+        foreach (MeshRenderer renderer in MeshRenderers)
+        {
+            renderer.enabled = false;
+        }
         MeshFilter = GetComponent<MeshFilter>();
         animator.runtimeAnimatorController =  Resources.Load<RuntimeAnimatorController>("InitializeEmergentObjectAnimator");
     }
@@ -38,12 +45,29 @@ public class InitializeEmergentObject3D : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         animator.Play("InitializeEmergentObjectAnimation");
         boxCollider = GetComponent<BoxCollider>();
-        MeshRenderer = GetComponent<MeshRenderer>();
+        MeshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
+        foreach (MeshRenderer renderer in MeshRenderers)
+        {
+            renderer.enabled = false;
+        }
+        remainingTime = timeTimer;
+    }
+
+    private void Update()
+    {
+        if (remainingTime < 0)
+        {
+            Destroy(gameObject);
+        }
+        remainingTime -= Time.deltaTime;
     }
 
     public void ActivateObject()
     {
         boxCollider.enabled = true;
-        MeshRenderer.enabled = true;
+        foreach (MeshRenderer renderer in MeshRenderers)
+        {
+            renderer.enabled = true;
+        }
     }
 }

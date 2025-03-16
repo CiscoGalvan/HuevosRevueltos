@@ -49,6 +49,8 @@ public class CalculateHitDirection : MonoBehaviour
 
 	[SerializeField]
 	private float _rumbleTime;
+
+	[SerializeField] private GameObject _cacerola;
 	private void Start()
 	{
 		 _gamepad = Gamepad.current;
@@ -77,7 +79,12 @@ public class CalculateHitDirection : MonoBehaviour
 					}
 
 					// Si la lata no ha sido lanzada, la marco como lanzada y seteo su objetivo
-					if (!damageEmitter.GetHitted())
+					if (_cacerola != null && _cacerola.activeSelf && damageEmitter.GetHitted())
+					{
+						damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
+						_cacerola.SetActive(false);
+					}
+					else if (!damageEmitter.GetHitted())
 					{
 						damageEmitter.SetElementToCollide((int)_playerNumber == 1 ? 2 : 1);
 						damageEmitter.SetHittedObject(true);

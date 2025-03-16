@@ -8,6 +8,7 @@ public class StunPlayerComponent : MonoBehaviour
 
     private float _stunnedTime;
     private float _time;
+    [SerializeField] private GameObject _cacerola;
     void Start()
     {
         _playerIsStuned = false;
@@ -33,10 +34,9 @@ public class StunPlayerComponent : MonoBehaviour
         DamageEmitter damageEmitter = collision.gameObject.GetComponent<DamageEmitter>();
         if(damageEmitter != null)
         {
-            //Aquí diferenciamos si tiene o no la sartén
-            //Si no la tiene...
-          
-            if (damageEmitter.GetHitted() && gameObject.layer == LayerMask.NameToLayer(damageEmitter.GetElementToCollide().ToString()))
+            if (damageEmitter.GetHitted() && gameObject.layer == LayerMask.NameToLayer(damageEmitter.GetElementToCollide().ToString()) 
+                &&
+                (_cacerola != null && !_cacerola.activeSelf))
 			{
 			
                 SetPlayerStunned(true, damageEmitter.GetStunnedTime());

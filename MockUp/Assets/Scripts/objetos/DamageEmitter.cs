@@ -8,12 +8,12 @@ public class DamageEmitter : MonoBehaviour
     private int _amountOfDamage = 10;
 
     
-	[Tooltip("Tiempo que el jugador pasará stunned en caso de que este objeto colisione con él. Segundos")]
+	[Tooltip("Tiempo que el jugador pasarï¿½ stunned en caso de que este objeto colisione con ï¿½l. Segundos")]
 	[SerializeField]
 	private float _stunnedTime;
 
 
-    private bool _wasHitted = false;
+    public bool _wasHitted = false;
     public enum KindOfObjectToCollideWith
     {
         Presa=0,
