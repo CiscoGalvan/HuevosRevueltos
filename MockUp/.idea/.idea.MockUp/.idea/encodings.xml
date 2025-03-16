@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Assets/Scripts/objetos/ConsumibleobjController.cs" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/objetos/Spawner.cs" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/objetos/StickAndBottleController.cs" charset="ISO-8859-1" />
   </component>
 </project>

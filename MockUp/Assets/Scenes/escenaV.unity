@@ -2460,6 +2460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   initialHealth: 10
+  _objetosHijos: []
 --- !u!1001 &1004899715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3581,6 +3582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 60
   initialHealth: 50
+  _objetosHijos: []
 --- !u!54 &1556258700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3705,6 +3707,8 @@ GameObject:
   - component: {fileID: 1623178253}
   - component: {fileID: 1623178252}
   - component: {fileID: 1623178251}
+  - component: {fileID: 1623178254}
+  - component: {fileID: 1623178255}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3777,6 +3781,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623178254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623178250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a6ff07e9dca04448e411eeb23f79a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _riverCollider: {fileID: 1934744512}
+  _maxSpeed: 5
+  _steeringStrength: 2
+--- !u!65 &1623178255
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623178250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1626164138
 GameObject:
   m_ObjectHideFlags: 0
