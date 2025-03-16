@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{b24c6e73-94f8-4ece-9cd3-0984ba147958}">
 		<property name="name">
-			<value>Menu_musica_boceto 3</value>
+			<value>Menu_musica_boceto_3</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -30,6 +30,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{5603c6b3-d565-48f6-867c-d29b42a12a27}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{ee50a5e5-bb85-4695-89b3-ec11e521d844}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{62a94c97-23c4-495a-b65d-2edfd284d217}">
