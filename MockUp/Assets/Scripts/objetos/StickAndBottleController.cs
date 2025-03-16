@@ -1,45 +1,46 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(CapsuleCollider))]
 public class StickAndBottleController : MonoBehaviour
 {
-	private enum FaseMovimiento
+	public enum FaseMovimiento
 	{
 		Cascada,
 		Rio
 	}
 	
 	private int _randomSide;
-	private BoxCollider _boxCollider;
-	[SerializeField] private BoxCollider _riverCollider;
+	private CapsuleCollider _capsuleCollider;
+	[SerializeField] public BoxCollider _riverCollider;
 	[SerializeField] private float _maxSpeed = 5f; // Velocidad máxima
 	[SerializeField] private float _steeringStrength = 2f; // Fuerza de Steering
 
 	private Vector3 _targetPosition;
 	private Vector3 _targetPositionCascada;
 	private Vector3 _currentVelocity;
-	private FaseMovimiento fase;
+	public FaseMovimiento fase;
 
 	private void Start()
 	{
 		_randomSide = Random.Range(0, 2);
 		fase = FaseMovimiento.Cascada;
-		_boxCollider = GetComponent<BoxCollider>();
-		_boxCollider.isTrigger = true;
+		_capsuleCollider = GetComponent<CapsuleCollider>();
+		_capsuleCollider.isTrigger = true;
 		SetTargetPosition();
 		if (IsLeftSpawned())
 		{
 			//Está en el lado izquierdo
-			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _boxCollider.size.y/2,
+			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.min.z);
+			Debug.Log(_targetPositionCascada);
 		}
 		else
 		{
 			//Está en el lado derecho
-			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _boxCollider.size.y/2,
+			_targetPositionCascada = new Vector3(transform.position.x, _riverCollider.bounds.max.y + _capsuleCollider.radius,
 				_riverCollider.bounds.max.z);
+			Debug.Log(_targetPositionCascada);
 		}
 	}
 
@@ -101,7 +102,7 @@ public class StickAndBottleController : MonoBehaviour
 		float randomZ = Random.Range(bounds.min.z, bounds.max.z);
 
 		// Definir la posición de destino con Y en 0
-		_targetPosition = new Vector3(targetX, 0, randomZ);
+		_targetPosition = new Vector3(targetX, 2 + _capsuleCollider.radius , randomZ);
 	}
 
 	private void ApplySteering()
