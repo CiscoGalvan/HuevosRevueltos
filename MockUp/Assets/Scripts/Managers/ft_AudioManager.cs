@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity;
+
 
 [System.Serializable]
 public class ft_Sound
 {
 	public ft_AudioManager.ft_AudioType audioType;
-	public string eventPath;
+	public AudioClip Sound;
 	public float volume = 1;
 }
 public class ft_AudioManager : MonoBehaviour
@@ -27,6 +27,10 @@ public class ft_AudioManager : MonoBehaviour
 			return _instance;
 		}
 	}
+
+	private AudioSource musicSource;
+	private AudioSource sfxSource;
+	private AudioSource AmbienceSource;
 
 	public enum ft_AudioType
 	{
@@ -47,7 +51,7 @@ public class ft_AudioManager : MonoBehaviour
 		Sink
 	}
 	public List<ft_Sound> soundList = new List<ft_Sound>();
-	private Dictionary<ft_AudioType, string> soundDictionary;
+	private Dictionary<ft_AudioType, AudioClip> soundDictionary;
 	private void Awake()
 	{
 		if (_instance == null)
@@ -60,11 +64,16 @@ public class ft_AudioManager : MonoBehaviour
 			Destroy(gameObject);
 			return ;
 		}
-		soundDictionary = new Dictionary<ft_AudioType, string>();
+		musicSource = gameObject.AddComponent<AudioSource>();
+		sfxSource = gameObject.AddComponent<AudioSource>();
+		AmbienceSource = gameObject.AddComponent<AudioSource>();
+		musicSource.loop = true;
+		AmbienceSource.loop = true;
+		soundDictionary = new Dictionary<ft_AudioType, AudioClip>();
 		foreach (ft_Sound sound in soundList)
 		{
 			if (!soundDictionary.ContainsKey(sound.audioType))
-				soundDictionary.Add(sound.audioType, sound.eventPath);
+				soundDictionary.Add(sound.audioType, sound.Sound);
 			else
 				Debug.LogWarning("AudioManager: soundDictionary already contains " + sound.audioType);
 		}
@@ -74,52 +83,53 @@ public class ft_AudioManager : MonoBehaviour
 	{
 		if (soundDictionary.ContainsKey(type))
 		{
-			string eventPath = soundDictionary[type];
-			if (volume >= 0)
+			AudioClip musicClip = soundDictionary[type];
+			if (musicClip != null || volume >= 0)
 			{
-				FMOD.Studio.EventInstance musicInstance = RuntimeManager.CreateInstance(eventPath);
-				musicInstance.setParameterByName("Volume", volume);
-				musicInstance.start();
-				musicInstance.release();
+				musicSource.clip = musicClip;
+				musicSource.volume = volume;
+				musicSource.Play();
 			}
 			else
-				Debug.LogWarning("PlayMusic: Music is null or volume is less/equal than 0");
+				Debug.LogWarning("PlayMusic: musicClip is null or volume is less/equal than 0");
 		}
 		else
 			Debug.LogWarning("PlayMusic: soundDictionary doesn't contain " + type);
+	}
+	public void StopMusic()
+	{
+		musicSource.Stop();
 	}
 	public void PlayAmbience(ft_AudioType type, float volume = 1)
 	{
 		if (soundDictionary.ContainsKey(type))
 		{
-			string eventPath = soundDictionary[type];
-			if (volume >= 0)
+			AudioClip ambienceClip = soundDictionary[type];
+			if (ambienceClip != null || volume >= 0)
 			{
-				FMOD.Studio.EventInstance musicInstance = RuntimeManager.CreateInstance(eventPath);
-				musicInstance.setParameterByName("Volume", volume);
-				musicInstance.start();
-				musicInstance.release();
+				AmbienceSource.clip = ambienceClip;
+				AmbienceSource.volume = volume;
+				AmbienceSource.Play();
 			}
 			else
-				Debug.LogWarning("PlayAmbience: ambience is null or volume is less/equal than 0");
+				Debug.LogWarning("PlayAmbience: ambienceClip is null or volume is less/equal than 0");
 		}
 		else
 			Debug.LogWarning("PlayMusic: soundDictionary doesn't contain " + type);
 	}
-	public void PlaySFX(ft_AudioType type, float volume = 1)
+	public void StopAmbience()
+	{
+		AmbienceSource.Stop();
+	}
+	public void PlaySFX(ft_AudioType type, float volume = 100)
 	{
 		if (soundDictionary.ContainsKey(type))
 		{
-			string eventPath = soundDictionary[type];
-			if (volume >= 0)
-			{
-				FMOD.Studio.EventInstance musicInstance = RuntimeManager.CreateInstance(eventPath);
-				musicInstance.setParameterByName("Volume", volume);
-				musicInstance.start();
-				musicInstance.release();
-			}
+			AudioClip sfxClip = soundDictionary[type];
+			if (sfxClip != null || volume >= 0)
+				sfxSource.PlayOneShot(sfxClip, volume);
 			else
-				Debug.LogWarning("PlaySFX: sfx is null or volume is less/equal than 0");
+				Debug.LogWarning("PlaySFX: sfxClip is null or volume is less/equal than 0");
 		}
 		else
 			Debug.LogWarning("PlayMusic: soundDictionary doesn't contain " + type);
