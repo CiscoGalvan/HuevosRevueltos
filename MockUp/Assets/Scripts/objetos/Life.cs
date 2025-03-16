@@ -13,22 +13,14 @@ public class Life : MonoBehaviour
     private bool isDead;
     [SerializeField]
     private List<GameObject> _objetosHijos;
+    [SerializeField]
+    private List<int> _relacionVidaObjetos;
 	// Start is called before the first frame update
-
-	// Variable privada para almacenar el umbral calculado
-	private float threshold;
 	void Start()
     {
         isDead = false;
         currentHealth = initialHealth;
-		// Calculamos el umbral solo una vez al inicio
-		threshold = maxHealth / (float)_objetosHijos.Count;
-
-		// Activamos el último objeto (la fase inicial es la última)
-		if (_objetosHijos.Count > 0)
-		{
-			_objetosHijos[_objetosHijos.Count - 1].SetActive(true);
-		}
+        SeeIfNeedChange();
 	}
 
     public void Damage(int amount)
@@ -61,32 +53,36 @@ public class Life : MonoBehaviour
 
     private void SeeIfNeedChange()
     {
-        //Que alguien revise este codigo y lo haga por dios santo.
+		if (_relacionVidaObjetos == null || _relacionVidaObjetos.Count == 0) return;
+		int closestIndex = 0;
+		int closestDifference = Mathf.Abs(_relacionVidaObjetos[0] - currentHealth);
+		// Buscar el índice del valor más cercano a currentHealth en _relacionVidaObjetos
+		for (int i = 1; i < _relacionVidaObjetos.Count; i++)
+		{
+			int difference = Mathf.Abs(_relacionVidaObjetos[i] - currentHealth);
+			if (difference < closestDifference)
+			{
+				closestDifference = difference;
+				closestIndex = i;
+			}
+		}
+		DeactivateAllOthers(closestIndex);
+	}
 
-
-		//// Recorremos la lista de objetos hijos para ver si debemos activar alguno
-		//for (int i = 0; i < _objetosHijos.Count; i++)
-		//{
-		//	// Comprobamos si la vida actual ha cruzado un umbral
-		//	if (currentHealth <= threshold * (i + 1))
-		//	{
-		//		// Desactivamos los objetos anteriores
-		//		for (int j = 0; j < i; j++)
-		//		{
-		//			if (_objetosHijos[j].activeSelf)
-		//			{
-  //                      Debug.Log("i");
-		//				_objetosHijos[j].SetActive(false);
-		//			}
-		//		}
-
-		//		// Activamos el objeto correspondiente al umbral
-		//		if (!_objetosHijos[i].activeSelf)
-		//		{
-		//			_objetosHijos[i].SetActive(true);
-		//		}
-		//	}
-		//}
+    private void DeactivateAllOthers(int i)
+    {
+		if (_objetosHijos == null || _objetosHijos.Count == 0) return;
+		for (int j = 0; j < _objetosHijos.Count; j++)
+		{
+			if (j == i)
+			{
+				_objetosHijos[j].SetActive(true); // Activa solo el objeto con el índice i
+			}
+            else
+            {
+				_objetosHijos[j].SetActive(false); // Activa solo el objeto con el índice i
+			}
+		}
 	}
     
 }

@@ -12479,37 +12479,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b91d34794a47bf45bb401492d97e30c, type: 3}
   m_PrefabInstance: {fileID: 669897665}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &670178568
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 670178570}
-  m_Layer: 0
-  m_Name: PresaManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &670178570
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670178568}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.035133, y: -74.54761, z: 112.5425}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &674352622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18984,6 +18953,7 @@ MonoBehaviour:
   - {fileID: 157327867}
   - {fileID: 240675604}
   - {fileID: 1286615348}
+  _relacionVidaObjetos: 110000002200000033000000440000005200000063000000
 --- !u!1001 &979364333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30350,6 +30320,7 @@ MonoBehaviour:
   - {fileID: 1525696013}
   - {fileID: 1672977453}
   - {fileID: 848792586}
+  _relacionVidaObjetos: 110000002200000033000000440000005200000063000000
 --- !u!54 &1556258700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40512,7 +40483,6 @@ SceneRoots:
   - {fileID: 1162734543}
   - {fileID: 605072216}
   - {fileID: 789444278}
-  - {fileID: 670178570}
   - {fileID: 1284513533}
   - {fileID: 785291540}
   - {fileID: 1004899715}
