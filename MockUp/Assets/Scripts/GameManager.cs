@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] 
     private GameOverScreen  gameOverScreen;
-   
-    private Life life1;
-    
-    private Life life2;
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -56,10 +53,33 @@ public class GameManager : MonoBehaviour
       
         gameOverScreen.initScreen(isPlayer1);
     }
-    // Método para reiniciar el juego cargando la escena "Game"
-    public void inittGame()
+
+	private void Update()
+	{
+        if(SceneManager.GetActiveScene().name == "initialMenu")
+        {
+            if((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
+            {
+				InitGame();
+			}
+        }
+	}
+    private bool AnyGamepadButtonPressed()
     {
-        SceneManager.LoadScene("Game");
-       
+        return Gamepad.current.buttonSouth.wasPressedThisFrame || 
+            Gamepad.current.buttonNorth.wasPressedThisFrame || 
+            Gamepad.current.buttonWest.wasPressedThisFrame || 
+            Gamepad.current.buttonEast.wasPressedThisFrame || 
+            Gamepad.current.startButton.wasPressedThisFrame ||
+            Gamepad.current.selectButton.wasPressedThisFrame ||
+            Gamepad.current.leftShoulder.wasPressedThisFrame ||
+            Gamepad.current.rightShoulder.wasPressedThisFrame ||
+            Gamepad.current.leftTrigger.wasPressedThisFrame ||
+            Gamepad.current.rightTrigger.wasPressedThisFrame;
+	}
+	// Método para reiniciar el juego cargando la escena "Game"
+	private void InitGame()
+    {
+        SceneManager.LoadScene("Game");  
     }
 }

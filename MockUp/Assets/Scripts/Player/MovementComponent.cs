@@ -1,27 +1,34 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
 {
-	[Tooltip("Aceleraci髇 del movimiento del jugador")]
+	[Tooltip("Aceleraci贸n del movimiento del jugador")]
 	[SerializeField] private float _acceleration = 15f;
 
-	[Tooltip("Velocidad m醲ima que va a alcanzar el jugador")]
+	[Tooltip("Velocidad m谩xima que va a alcanzar el jugador")]
 	[SerializeField] private float _maxSpeed = 15f;
 
-	[Tooltip("Fricci髇 a la que se ve sometido el movimiento del jugador")]
+	[Tooltip("Fricci贸n a la que se ve sometido el movimiento del jugador")]
 	[SerializeField] private float _friction = 3f;
 
-	[Tooltip("Factor de multiplicaci髇 aplicado al input.")]
+	[Tooltip("Factor de multiplicaci贸n aplicado al input.")]
 	[SerializeField] private float _speed = 10f; // Multiplicador para la entrada del jugador
 
 	private Vector3 _currentVelocity = Vector3.zero;
 
+
+	private StunPlayerComponent _stunPlayerComponent;
+	private void Start()
+	{
+		_stunPlayerComponent = GetComponent<StunPlayerComponent>();
+	}
 	public void SetMovementDirection(Vector2 direction)
 	{
-		if (direction.magnitude > 0)
+
+		if (direction.magnitude > 0 && !_stunPlayerComponent.GetPlayerIsStunned())
 		{
 			Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * _speed;
 			_currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, _acceleration * Time.deltaTime);
@@ -33,6 +40,16 @@ public class MovementComponent : MonoBehaviour
 		}
 
 		transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
+		if (_currentVelocity.magnitude > 0.05f) // Evita rotaciones cuando est谩 quieto
+		{
+			Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity.normalized);
+
+			// Determinar el ajuste de rotaci贸n seg煤n la capa
+			float rotationOffset = (gameObject.layer == LayerMask.NameToLayer("PlayerOne")) ? -90f : 90f;
+
+			Quaternion adjustedRotation = targetRotation * Quaternion.Euler(0, rotationOffset, 0);
+			transform.rotation = adjustedRotation;
+		}
 	}
 	public void setSpeed(float s)
 	{
