@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{3b82431f-1dad-4e99-91b2-20fed3b2f016}">
 		<property name="assetPath">
-			<value>Equipación cazo.wav</value>
+			<value>SFX/Equipación cazo.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

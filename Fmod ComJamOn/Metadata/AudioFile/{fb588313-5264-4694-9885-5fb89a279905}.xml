@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{fb588313-5264-4694-9885-5fb89a279905}">
 		<property name="assetPath">
-			<value>Zampar baya.wav</value>
+			<value>SFX/Zampar baya.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

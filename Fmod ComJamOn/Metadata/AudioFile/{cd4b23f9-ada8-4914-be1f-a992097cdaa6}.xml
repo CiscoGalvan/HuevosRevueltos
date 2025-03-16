@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{cd4b23f9-ada8-4914-be1f-a992097cdaa6}">
 		<property name="assetPath">
-			<value>Castor aturdido (2).wav</value>
+			<value>SFX/Castor aturdido (2).wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
