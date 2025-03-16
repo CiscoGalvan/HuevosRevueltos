@@ -12,14 +12,60 @@ public class SpeedModifier : powerup
     private MovementComponent playerMovement;
     private float originalSpeed;
     private float originalmaxSpeed;
+    [SerializeField] private Color castorFrio;
+    [SerializeField] private Color castorOrejasFrioPlayer1;
+    [SerializeField] private Color castorOrejasFrioPlayer2;
+    
+    [SerializeField] private Color castorNormal;
+    [SerializeField] private Color castorOrejasNormalPlayer1;
+    [SerializeField] private Color castorOrejasNormalPlayer2;
+    
+    [SerializeField] private Color castorCalor;
+    [SerializeField] private Color castorOrejasCalorPlayer1;
+    [SerializeField] private Color castorOrejasCalorPlayer2;
 
-   
+    private Material materialCastor;
+    private Material materialCastorOrejas;
     public override void Modifyobj(GameObject g)
     {
         playerMovement = g.gameObject.GetComponent<MovementComponent>();
 
         if (playerMovement != null)
         {
+            // TIENE FRIO
+            if (!increase)
+            {
+                if (g.gameObject.name == "Player1")
+                {
+                    foreach (Material mat in g.transform.GetChild(0).GetComponent<Renderer>().materials)
+                    {
+                        if (mat.name.Contains("marron"))
+                        {
+                            mat.color = castorFrio;
+                        }
+
+                        if (mat.name.Contains("marronOscuro"))
+                        {
+                            mat.color = castorOrejasFrioPlayer1;
+                        }
+                    }
+                }
+                else if (g.gameObject.name == "Player2")
+                {
+                    foreach (Material mat in g.transform.GetChild(0).GetComponent<Renderer>().materials)
+                    {
+                        if (mat.name.Contains("marron"))
+                        {
+                            mat.color = castorFrio;
+                        }
+
+                        if (mat.name.Contains("marronclaro"))
+                        {
+                            mat.color = castorOrejasFrioPlayer2;
+                        }
+                    }
+                }
+            }
             originalSpeed = playerMovement.getSpeed();
             originalmaxSpeed = playerMovement.getmaxSpeed();
         }
@@ -54,6 +100,39 @@ public class SpeedModifier : powerup
         {
             playerMovement.setSpeed(originalSpeed);
             playerMovement.setmaxSpeed(originalmaxSpeed);
+        }
+        if (!increase)
+        {
+            if (playerMovement.gameObject.name == "Player1")
+            {
+                foreach (Material mat in playerMovement.transform.GetChild(0).GetComponent<Renderer>().materials)
+                {
+                    if (mat.name.Contains("marron"))
+                    {
+                        mat.color = castorNormal;
+                    }
+
+                    if (mat.name.Contains("marronOscuro"))
+                    {
+                        mat.color = castorOrejasNormalPlayer1;
+                    }
+                }
+            }
+            else if (playerMovement.gameObject.name == "Player2")
+            {
+                foreach (Material mat in playerMovement.transform.GetChild(0).GetComponent<Renderer>().materials)
+                {
+                    if (mat.name.Contains("marron"))
+                    {
+                        mat.color = castorNormal;
+                    }
+
+                    if (mat.name.Contains("marronclaro"))
+                    {
+                        mat.color = castorOrejasNormalPlayer2;
+                    }
+                }
+            }
         }
     }
 }

@@ -255,6 +255,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   increase: 0
   speedFactor: 3
+  castorFrio: {r: 0.3160377, g: 0.7261502, b: 1, a: 1}
+  castorOrejasFrioPlayer1: {r: 0, g: 0.4341876, b: 0.5188679, a: 1}
+  castorOrejasFrioPlayer2: {r: 0.6839622, g: 0.94931483, b: 1, a: 1}
+  castorNormal: {r: 0.64705884, g: 0.41960785, b: 0, a: 1}
+  castorOrejasNormalPlayer1: {r: 0.46666667, g: 0.3019608, b: 0, a: 1}
+  castorOrejasNormalPlayer2: {r: 0.83137256, g: 0.5803922, b: 0.29411766, a: 1}
+  castorCalor: {r: 0.64705884, g: 0.41960785, b: 0, a: 1}
+  castorOrejasCalorPlayer1: {r: 0.46666667, g: 0.3019608, b: 0, a: 1}
+  castorOrejasCalorPlayer2: {r: 0.83137256, g: 0.5803922, b: 0.29411766, a: 1}
 --- !u!114 &6208775365383293670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,4 +290,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab3f0b08b071f340960ed3c930041f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MeshRenderers: []
   timeTimer: 8
