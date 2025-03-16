@@ -133,7 +133,6 @@ public class GameManager : MonoBehaviour
                 GoToMenu();
 			}
 		}
-
         if (Input.GetKey(KeyCode.T))
         {
 
@@ -156,7 +155,7 @@ public class GameManager : MonoBehaviour
 	// M�todo para reiniciar el juego cargando la escena "Game"
 	private void InitGame()
     {
-        SceneManager.LoadScene("Game");  
+        SceneManager.LoadScene("GameFinal");  
     }
 
     public void GoToMenu()

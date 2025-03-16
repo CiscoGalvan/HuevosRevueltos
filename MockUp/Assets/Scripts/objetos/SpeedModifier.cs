@@ -77,12 +77,12 @@ public class SpeedModifier : powerup
 
         if (increase)
         {
-            playerMovement.setSpeed(originalSpeed * speedFactor) ;
+            playerMovement.setSpeed(originalSpeed * speedFactor, increase) ;
             playerMovement.setmaxSpeed(originalmaxSpeed * speedFactor) ;
         }
         else
         {
-            playerMovement.setSpeed(originalSpeed / speedFactor);
+            playerMovement.setSpeed(originalSpeed / speedFactor, increase);
             playerMovement.setmaxSpeed(originalmaxSpeed / speedFactor);
 
         }
@@ -98,7 +98,7 @@ public class SpeedModifier : powerup
     {
         if (playerMovement != null)
         {
-            playerMovement.setSpeed(originalSpeed);
+            playerMovement.setSpeed(originalSpeed, increase);
             playerMovement.setmaxSpeed(originalmaxSpeed);
         }
         if (!increase)

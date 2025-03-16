@@ -32,6 +32,6 @@ public class GameOverScreen : MonoBehaviour
 
     public void restartButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("CreditsScene");
     }
 }

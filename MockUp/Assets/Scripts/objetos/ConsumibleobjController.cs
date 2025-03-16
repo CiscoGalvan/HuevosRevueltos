@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConsumibleobjController : MonoBehaviour
 {
     [SerializeField] private bool needTime = true;
-    [SerializeField] private float effectDuration = 5f; // Tiempo que dura el efecto
+    [SerializeField] private float effectDuration = 2.5f; // Tiempo que dura el efecto
     private powerup targetComponent;
 
 

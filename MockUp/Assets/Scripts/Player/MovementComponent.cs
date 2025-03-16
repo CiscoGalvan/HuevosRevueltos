@@ -17,6 +17,17 @@ public class MovementComponent : MonoBehaviour
 	[Tooltip("Factor de multiplicación aplicado al input.")]
 	[SerializeField] private float _speed = 10f; // Multiplicador para la entrada del jugador
 
+	[SerializeField] private GameObject freezeEffect;
+	[SerializeField] private GameObject freezeAura;
+	[SerializeField] private GameObject speedEffect;
+
+	private GameObject _particleGameObject1;
+	private GameObject _particleGameObject2;
+	private GameObject _particleGameObject3;
+
+	[SerializeField] private GameObject SpeedPoint;
+	[SerializeField] private GameObject AuraPoint;
+
 	private Vector3 _currentVelocity = Vector3.zero;
 
 	private float initialSpeed;
@@ -53,10 +64,20 @@ public class MovementComponent : MonoBehaviour
 			transform.rotation = adjustedRotation;
 		}
 	}
-	public void setSpeed(float s)
+	public void setSpeed(float s, bool increase)
 	{
-        _speed = s;	
+        _speed = s;
 
+		if (!increase) {
+			_particleGameObject1 = Instantiate(freezeEffect, AuraPoint.transform.position, Quaternion.identity);
+			Destroy(_particleGameObject1, 2.5f);
+			_particleGameObject2 = Instantiate(freezeAura, SpeedPoint.transform.position, Quaternion.identity);
+			Destroy(_particleGameObject2, 2.5f);
+		}
+		else {
+			_particleGameObject3 = Instantiate(speedEffect, SpeedPoint.transform.position, Quaternion.identity);
+			Destroy(_particleGameObject3, 2.5f);
+		}
 	}
     public float getSpeed()
     {
