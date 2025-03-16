@@ -14,7 +14,7 @@ public class CalculateHitDirection : MonoBehaviour
     [SerializeField]
     LayerMask mask;
 
-
+	
 
     [SerializeField]
     private float _hitStrength;
@@ -49,7 +49,10 @@ public class CalculateHitDirection : MonoBehaviour
 
 	[SerializeField]
 	private float _rumbleTime;
-	private void Start()
+
+    [SerializeField]
+    GameObject caerola;
+    private void Start()
 	{
 		 _gamepad = Gamepad.current;
 	}
