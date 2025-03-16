@@ -64,22 +64,32 @@ public class Spawner : MonoBehaviour
 	// Retorna un punto aleatorio en la zona 1
 	Vector3 GetRandomPointInZone1()
 	{
+		Vector3 boxSize = _colliderCascadaOne.size;
+		Vector3 boxCenter = _colliderCascadaOne.center;
+		float randomX = Random.Range(-boxSize.x / 2, boxSize.x / 2);
+		float randomY = Random.Range(-boxSize.y / 2, boxSize.y / 2);
+		float randomZ = Random.Range(-boxSize.z / 2, boxSize.z / 2);
+		Vector3 localPoint = new Vector3(randomX, randomY, randomZ) + boxCenter;
+		Vector3 worldPoint = _colliderCascadaOne.transform.TransformPoint(localPoint);
+
 		return _colliderCascadaOne != null
-			? new Vector3(
-				Random.Range(_colliderCascadaOne.bounds.min.x, _colliderCascadaOne.bounds.max.x),
-				0,
-				Random.Range(_colliderCascadaOne.bounds.min.z, _colliderCascadaOne.bounds.max.z))
+			? worldPoint
 			: Vector3.zero;
 	}
 
 	// Retorna un punto aleatorio en la zona 2
 	Vector3 GetRandomPointInZone2()
 	{
+		Vector3 boxSize = _colliderCascadaTwo.size;
+		Vector3 boxCenter = _colliderCascadaTwo.center;
+		float randomX = Random.Range(-boxSize.x / 2, boxSize.x / 2);
+		float randomY = Random.Range(-boxSize.y / 2, boxSize.y / 2);
+		float randomZ = Random.Range(-boxSize.z / 2, boxSize.z / 2);
+		Vector3 localPoint = new Vector3(randomX, randomY, randomZ) + boxCenter;
+		Vector3 worldPoint = _colliderCascadaTwo.transform.TransformPoint(localPoint);
+
 		return _colliderCascadaTwo != null
-			? new Vector3(
-				Random.Range(_colliderCascadaTwo.bounds.min.x, _colliderCascadaTwo.bounds.max.x),
-				0,
-				Random.Range(_colliderCascadaTwo.bounds.min.z, _colliderCascadaTwo.bounds.max.z))
+			? worldPoint
 			: Vector3.zero;
 	}
 
