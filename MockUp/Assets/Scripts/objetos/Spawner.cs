@@ -14,9 +14,10 @@ public class Spawner : MonoBehaviour
 
 	[Header("Prefabs")]
 	[SerializeField] private List<GameObject> ListaLatas; // Lista de prefabs de latas
-	[SerializeField] private GameObject _paloPrefab; // Prefab del palo
+	[SerializeField] private List<GameObject> ListaPalos; // Lista de prefabs de palos
 
 	private bool _canSpawnLata = true; // Controla si se puede generar una nueva lata
+	[SerializeField] private BoxCollider _riverCollider;
 
 	void Start()
 	{
@@ -34,7 +35,8 @@ public class Spawner : MonoBehaviour
 			if (objetoAInstanciar != null)
 			{
 				Vector3 spawnPosition = Random.Range(0, 2) == 0 ? GetRandomPointInZone1() : GetRandomPointInZone2();
-				Instantiate(objetoAInstanciar, spawnPosition, Quaternion.identity);
+				GameObject objeto = Instantiate(objetoAInstanciar, spawnPosition, Quaternion.identity);
+				objeto.GetComponent<StickAndBottleController>()._riverCollider = _riverCollider;
 
 				// Si es una lata, activar cooldown
 				if (ListaLatas.Contains(objetoAInstanciar))
@@ -51,7 +53,7 @@ public class Spawner : MonoBehaviour
 	{
 		if (Random.value < paloProbability) // Probabilidad de generar un palo
 		{
-			return _paloPrefab;
+			return ListaPalos[Random.Range(0, ListaPalos.Count)];
 		}
 		else if (_canSpawnLata && ListaLatas.Count > 0) // Solo generar lata si está permitido
 		{
