@@ -28,9 +28,16 @@ public class DamageEmitter : MonoBehaviour
         Life _life = collision.gameObject.GetComponent<Life>();
         if (_life != null )
         {
-            _life.Damage(_amountOfDamage);
-            //Animación de destrucción
-            Destroy(gameObject);
+            if(_amountOfDamage > 0)
+            {
+				_life.Damage(_amountOfDamage);
+			}
+            else
+            {
+                _life.Heal(-_amountOfDamage);
+            }
+
+			Destroy(gameObject);
         }
     }
 
@@ -45,4 +52,6 @@ public class DamageEmitter : MonoBehaviour
         _wasHitted = newValue;
     }
     public bool GetHitted() => _wasHitted;
+
+    public int GetDamageAmount() => _amountOfDamage;
 }

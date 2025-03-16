@@ -37,13 +37,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
-	public void Start()
+    public void QuitGame()
     {
-		if(SceneManager.GetActiveScene().name == "initialMenu")
-            ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Ambience, volume: 1.0f);
+        Application.Quit();
     }
-
     public void EndScene(GameObject g)
     {
         if (g.CompareTag("presa1"))
