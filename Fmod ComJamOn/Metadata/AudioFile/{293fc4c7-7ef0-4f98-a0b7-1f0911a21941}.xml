@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{293fc4c7-7ef0-4f98-a0b7-1f0911a21941}">
+		<property name="assetPath">
+			<value>SFX/Coger palo.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.625</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0e4f9c7-0d13-414c-8e7e-dadcb083cecb}</destination>
+		</relationship>
+	</object>
+</objects>

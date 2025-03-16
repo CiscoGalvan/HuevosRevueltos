@@ -1,0 +1,625 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8345888827220979524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musica_menu_boceto
+  m_EditorClassIdentifier: 
+  Path: event:/Musica_menu_boceto
+  Guid:
+    Data1: -1119211084
+    Data2: 1247367952
+    Data3: -546932839
+    Data4: -99285747
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 96000
+--- !u!114 &-7415894181350701322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Congelacion
+  m_EditorClassIdentifier: 
+  Path: event:/Congelacion
+  Guid:
+    Data1: -1300037708
+    Data2: 1169949950
+    Data3: -1949523817
+    Data4: -1902454692
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3721
+--- !u!114 &-5835512578999743808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sonido_victoria
+  m_EditorClassIdentifier: 
+  Path: event:/Sonido_victoria
+  Guid:
+    Data1: -1450871632
+    Data2: 1331739048
+    Data3: -727226205
+    Data4: -1092136339
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5046
+--- !u!114 &-5056570701966552453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Equipacion_cazo(1)
+  m_EditorClassIdentifier: 
+  Path: event:/Equipacion_cazo(1)
+  Guid:
+    Data1: -1823737853
+    Data2: 1156198688
+    Data3: 969126581
+    Data4: 1066074060
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1783
+--- !u!114 &-4841390260874447526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sonido_objeto_hundiendose
+  m_EditorClassIdentifier: 
+  Path: event:/Sonido_objeto_hundiendose
+  Guid:
+    Data1: -12797440
+    Data2: 1089255914
+    Data3: -2144566595
+    Data4: -1908091718
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 958
+--- !u!114 &-4238975258785996906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Golpear_lata_Jugador_1
+  m_EditorClassIdentifier: 
+  Path: event:/Golpear_lata_Jugador_1
+  Guid:
+    Data1: 730410909
+    Data2: 1301957489
+    Data3: -1410351965
+    Data4: -1328574930
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1894
+--- !u!114 &-3698014650728613069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Zampar_baya
+  m_EditorClassIdentifier: 
+  Path: event:/Zampar_baya
+  Guid:
+    Data1: 1697844725
+    Data2: 1277355206
+    Data3: -555941736
+    Data4: 326859352
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2610
+--- !u!114 &-3322507181628057972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Da\xF1o_a_la presa"
+  m_EditorClassIdentifier: 
+  Path: "event:/Da\xF1o_a_la presa"
+  Guid:
+    Data1: 1350026455
+    Data2: 1285390695
+    Data3: -46970206
+    Data4: -724871595
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600
+--- !u!114 &-2768610577477768868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod ComJamOn/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638777437162386824
+  FileSizes:
+  - Name: Desktop
+    Value: 1722
+  Exists: 1
+--- !u!114 &-2380359351991559012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Gameplay_musica1
+  m_EditorClassIdentifier: 
+  Path: event:/Gameplay_musica1
+  Guid:
+    Data1: -47991962
+    Data2: 1195826708
+    Data3: 1440978612
+    Data4: -2087679912
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 192000
+--- !u!114 &-1485886987634634197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Menu_musica_boceto 3
+  m_EditorClassIdentifier: 
+  Path: event:/Menu_musica_boceto 3
+  Guid:
+    Data1: -1303613837
+    Data2: 1322161400
+    Data3: -2079730788
+    Data4: 1484330170
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 192000
+--- !u!114 &-1457150024892056802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Da\xF1o a la presa 3a versi\xF3n"
+  m_EditorClassIdentifier: 
+  Path: "event:/Da\xF1o a la presa 3a versi\xF3n"
+  Guid:
+    Data1: -1394380975
+    Data2: 1300009190
+    Data3: -1698614852
+    Data4: -949559753
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1552
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -2768610577477768868}
+  - {fileID: 7435030364380542012}
+  EditorEvents:
+  - {fileID: 2418367805996649868}
+  - {fileID: 7534163705074464456}
+  - {fileID: 2588099148568136720}
+  - {fileID: -8345888827220979524}
+  - {fileID: -7415894181350701322}
+  - {fileID: 3352041215669748259}
+  - {fileID: -3322507181628057972}
+  - {fileID: 6674788623498067020}
+  - {fileID: -3698014650728613069}
+  - {fileID: -4841390260874447526}
+  - {fileID: -5056570701966552453}
+  - {fileID: 5049094879587908172}
+  - {fileID: -1457150024892056802}
+  - {fileID: -1485886987634634197}
+  - {fileID: -4238975258785996906}
+  - {fileID: -5835512578999743808}
+  - {fileID: 3797448568285999610}
+  - {fileID: 2320923006747862588}
+  - {fileID: 7681952100018321889}
+  - {fileID: -2380359351991559012}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 7435030364380542012}
+  StringsBanks:
+  - {fileID: -2768610577477768868}
+  cacheTime: 638777437162386824
+  cacheVersion: 131623
+--- !u!114 &2320923006747862588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Da\xF1o a la presa 2a versi\xF3n"
+  m_EditorClassIdentifier: 
+  Path: "event:/Da\xF1o a la presa 2a versi\xF3n"
+  Guid:
+    Data1: -1831439936
+    Data2: 1125422759
+    Data3: 1643205799
+    Data4: -1558316663
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2048
+--- !u!114 &2418367805996649868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Golpear_lata
+  m_EditorClassIdentifier: 
+  Path: event:/Golpear_lata
+  Guid:
+    Data1: -1248307365
+    Data2: 1231674311
+    Data3: 1776029593
+    Data4: 301133519
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1894
+--- !u!114 &2588099148568136720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Equipacion_cazo
+  m_EditorClassIdentifier: 
+  Path: event:/Equipacion_cazo
+  Guid:
+    Data1: -278626136
+    Data2: 1142680932
+    Data3: -105626219
+    Data4: -909002709
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1783
+--- !u!114 &3352041215669748259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Reforzar_presa
+  m_EditorClassIdentifier: 
+  Path: event:/Reforzar_presa
+  Guid:
+    Data1: -1928169288
+    Data2: 1298216318
+    Data3: -893031549
+    Data4: 855903556
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1288
+--- !u!114 &3797448568285999610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Golpear_lata_Jugador 2
+  m_EditorClassIdentifier: 
+  Path: event:/Golpear_lata_Jugador 2
+  Guid:
+    Data1: 1957932730
+    Data2: 1270519017
+    Data3: -1116465745
+    Data4: 1351006646
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1850
+--- !u!114 &5049094879587908172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lata_sarten
+  m_EditorClassIdentifier: 
+  Path: event:/Lata_sarten
+  Guid:
+    Data1: 1609142841
+    Data2: 1273630364
+    Data3: 255066766
+    Data4: -725487393
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 966
+--- !u!114 &6674788623498067020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Coger_palo
+  m_EditorClassIdentifier: 
+  Path: event:/Coger_palo
+  Guid:
+    Data1: -1383764264
+    Data2: 1150692037
+    Data3: -348292462
+    Data4: 841418604
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1625
+--- !u!114 &7435030364380542012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod ComJamOn/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638777437162334460
+  FileSizes:
+  - Name: Desktop
+    Value: 7161216
+  Exists: 1
+--- !u!114 &7534163705074464456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Castor_aturdido
+  m_EditorClassIdentifier: 
+  Path: event:/Castor_aturdido
+  Guid:
+    Data1: 2088935288
+    Data2: 1232056847
+    Data3: -1640605820
+    Data4: -1432939622
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4293
+--- !u!114 &7681952100018321889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Sonido_inicial
+  m_EditorClassIdentifier: 
+  Path: event:/Sonido_inicial
+  Guid:
+    Data1: -1526864960
+    Data2: 1289671797
+    Data3: 614651283
+    Data4: -169681926
+  Banks:
+  - {fileID: 7435030364380542012}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6026
