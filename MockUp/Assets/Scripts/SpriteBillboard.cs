@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpriteBillboar : MonoBehaviour
+public class SpriteBillboard : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

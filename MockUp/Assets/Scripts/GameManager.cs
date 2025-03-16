@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] 
     private GameOverScreen  gameOverScreen;
-   
-    private Life life1;
-    
-    private Life life2;
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -60,7 +56,6 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-
         if(SceneManager.GetActiveScene().name == "initialMenu")
         {
             if((Keyboard.current.anyKey.wasPressedThisFrame) || (Gamepad.current != null && AnyGamepadButtonPressed()))
