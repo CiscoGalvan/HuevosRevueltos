@@ -133,6 +133,13 @@ public class GameManager : MonoBehaviour
                 GoToMenu();
 			}
 		}
+
+        if (Input.GetKey(KeyCode.T))
+        {
+
+            GameOver(false);
+
+		}
 	}
     private bool AnyGamepadButtonPressed()
     {
