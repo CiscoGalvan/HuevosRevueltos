@@ -40,7 +40,7 @@ public class MovementComponent : MonoBehaviour
 		}
 
 		transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
-		if (_currentVelocity.magnitude > 0.1f) // Evita rotaciones cuando está quieto
+		if (_currentVelocity.magnitude > 0.05f) // Evita rotaciones cuando está quieto
 		{
 			Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity.normalized);
 

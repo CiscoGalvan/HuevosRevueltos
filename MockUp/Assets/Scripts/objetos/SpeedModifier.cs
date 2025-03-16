@@ -40,6 +40,8 @@ public class SpeedModifier : powerup
             playerMovement.setmaxSpeed(originalmaxSpeed / speedFactor);
 
         }
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        this.gameObject.GetComponent<Collider>().enabled = false;
     }
 
     public override void Resetobj()
