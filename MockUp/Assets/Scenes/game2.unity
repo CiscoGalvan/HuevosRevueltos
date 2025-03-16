@@ -5946,7 +5946,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 5.38
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5954,7 +5954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.2
+      value: 14.37
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6739,7 +6739,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _hitStrength: 100
-  _particlePrefab: {fileID: 0}
+  _particlePrefab: {fileID: 1305675960232650, guid: 09e06699a0f63c3459061aa42ffc8c04, type: 3}
   _rumbleLowFrequency: 1
   _rumbleHighFrequency: 1
   HitSfx: {fileID: 0}
@@ -9012,7 +9012,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 5.38
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9020,7 +9020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.2
+      value: 14.37
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791777, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16925,7 +16925,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _hitStrength: 100
-  _particlePrefab: {fileID: 0}
+  _particlePrefab: {fileID: 1305675960232650, guid: 09e06699a0f63c3459061aa42ffc8c04, type: 3}
   _rumbleLowFrequency: 1
   _rumbleHighFrequency: 1
   HitSfx: {fileID: 0}
