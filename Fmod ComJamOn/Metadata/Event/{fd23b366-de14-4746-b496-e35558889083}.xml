@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{fd23b366-de14-4746-b496-e35558889083}">
 		<property name="name">
-			<value>Gameplay_musica1</value>
+			<value>Music</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -76,6 +76,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{07439f2a-27e7-4433-8248-3e7506117503}">
+		<relationship name="modulators">
+			<destination>{bbc8d238-a042-4e7c-82b4-2a8be332a3e6}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{48e0b8b2-f03a-4723-80fd-10d0d68572a2}</destination>
 		</relationship>
@@ -138,6 +141,32 @@
 		<relationship name="markerTrack">
 			<destination>{435cf76e-91ed-47c0-a9e1-28a16aad787f}</destination>
 		</relationship>
+	</object>
+	<object class="ADSRModulator" id="{bbc8d238-a042-4e7c-82b4-2a8be332a3e6}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>3826.92285</value>
+		</property>
+		<property name="attackShape">
+			<value>0.226751745</value>
+		</property>
+		<property name="peakValue">
+			<value>-0.577777863</value>
+		</property>
+		<property name="releaseTime">
+			<value>4634.61523</value>
+		</property>
+		<property name="releaseShape">
+			<value>0.550516367</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{48e0b8b2-f03a-4723-80fd-10d0d68572a2}">
 		<relationship name="effects">

@@ -10,7 +10,7 @@ public class blendshape : MonoBehaviour
     int currentBlendShape = 0;
     float blendWeight = 0f;
     [SerializeField]
-    float speed = 50f; // Velocidad de la transición
+    float speed = 50f; // Velocidad de la transiciï¿½n
 
     void Start()
     {
