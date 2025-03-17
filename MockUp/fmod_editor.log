@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000257F943C068 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000016156182DC8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,52 +18,3 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] SystemI::createSound                     : filename = ../Fmod ComJamOn/Build/Desktop/Master.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000257FB3DA418, queue head = 00000257F978EAD8, queue count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000257FB3DA418
-[LOG] SystemI::createSoundInternal             :     Create name='../Fmod ComJamOn/Build/Desktop/Master.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 5710016
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 18592
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000002588A050440
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='Gameplay_musica1', format=5, channels=2, frequency=48000, lengthbytes=2624960, lengthpcm=9216000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.792071.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000257FB3DA418
-[LOG] SoundI::release                          : Menu_musica_boceto 3 (00000255D3A00738)
-[LOG] SoundI::release                          :     Menu_musica_boceto 3 (00000257FD769108)
-[LOG] SoundI::release                          :     Menu_musica_boceto 3 (0000025786AE7088)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 5710016
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 18592
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000008ACA5FF298
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFB86395B90
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFB86395B50
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFB86395C70
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFB86395D30
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000257FB757B38
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Golpear lata_Jugador 1', format=5, channels=2, frequency=48000, lengthbytes=21376, lengthpcm=90923, pcmblocksize=0, loopstart=0, loopend=88614, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.665863.
-[LOG] SoundI::release                          : Gameplay_musica1 (00000257FB3DA418)
-[LOG] SoundI::release                          :     Gameplay_musica1 (00000257FD769788)
-[LOG] SoundI::release                          :     Gameplay_musica1 (0000025786AE7238)
-[LOG] SoundI::release                          :  (00000258851612F8)
-[LOG] SoundI::release                          :     Golpear lata_Jugador 1 (000002588514A8A8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.

@@ -101,6 +101,7 @@ public class SpeedModifier : powerup
     {
         if (playerMovement != null)
         {
+            Debug.Log("Reiniciado");
             playerMovement.ResetSpeed();
 
             if (!increase)
@@ -134,6 +135,9 @@ public class SpeedModifier : powerup
                     }
                 }
             }
+        }
+        else {
+             Debug.Log("referencia personaje nula");
         }
     }
 }

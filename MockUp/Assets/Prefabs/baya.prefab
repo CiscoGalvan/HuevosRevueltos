@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needTime: 1
-  effectDuration: 5
+  effectDuration: 3
 --- !u!114 &746592826975192525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +347,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increase: 1
-  speedFactor: 3
+  speedFactor: 1.75
+  castorFrio: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasFrioPlayer1: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasFrioPlayer2: {r: 0, g: 0, b: 0, a: 0}
+  castorNormal: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasNormalPlayer1: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasNormalPlayer2: {r: 0, g: 0, b: 0, a: 0}
+  castorCalor: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasCalorPlayer1: {r: 0, g: 0, b: 0, a: 0}
+  castorOrejasCalorPlayer2: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &5494028428162710490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 13397d3cd9f71374c92df96ffab15965, type: 3}

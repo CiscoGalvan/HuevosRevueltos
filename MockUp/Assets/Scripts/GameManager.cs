@@ -83,8 +83,11 @@ public class GameManager : MonoBehaviour
 			playerPoint.MoveObjectToWinningPoint(_playerTwo);
 		}
         if (gameOverScreen != null) {
+            Debug.Log("no nulo screen");
     		gameOverScreen.initScreen(isPlayer1);
         }
+        else
+         Debug.Log("SI nulo screen");
 	}
 
     public void SetCastorMovement(bool status)

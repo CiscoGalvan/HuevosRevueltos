@@ -14,6 +14,8 @@ public class InitializeEmergentObject3D : MonoBehaviour
     public float timeTimer = 8;
     private float remainingTime = 0; 
 
+    private bool isEffectActive = false;
+
     private void Reset()
     {
         if (transform.Find("WaterShadow") == null)
@@ -53,11 +55,16 @@ public class InitializeEmergentObject3D : MonoBehaviour
 
     private void Update()
     {
-        if (remainingTime < 0)
+        if (!isEffectActive && remainingTime < 0)
         {
             Destroy(gameObject);
         }
         remainingTime -= Time.deltaTime;
+    }
+
+    public void SetEffectActive(bool status)
+    {
+        isEffectActive = status;
     }
 
     public void ActivateObject()

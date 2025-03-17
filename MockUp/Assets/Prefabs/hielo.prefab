@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increase: 0
-  speedFactor: 3
+  speedFactor: 2
   castorFrio: {r: 0.3160377, g: 0.7261502, b: 1, a: 1}
   castorOrejasFrioPlayer1: {r: 0, g: 0.4341876, b: 0.5188679, a: 1}
   castorOrejasFrioPlayer2: {r: 0.6839622, g: 0.94931483, b: 1, a: 1}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   needTime: 1
-  effectDuration: 5
+  effectDuration: 2.5
 --- !u!114 &5759429568123370000
 MonoBehaviour:
   m_ObjectHideFlags: 0

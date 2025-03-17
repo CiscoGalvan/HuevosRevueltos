@@ -6,13 +6,23 @@ public class ConsumibleobjController : MonoBehaviour
 {
     [SerializeField] private bool needTime = true;
     [SerializeField] private float effectDuration = 2.5f; // Duración del efecto en segundos
+
     private powerup targetComponent;
+    // Bandera para evitar múltiples activaciones
+    private bool effectApplied = false;
 
     private void OnCollisionEnter(Collision other)
     {
+        // Si ya se aplicó el efecto, no se hace nada.
+        if (effectApplied)
+            return;
+
         targetComponent = this.GetComponent<powerup>();
         if (other.gameObject.GetComponent<MovementComponent>() == null)
             return;
+
+        effectApplied = true; // Marcamos que el efecto ya fue activado
+
         if (needTime)
             StartCoroutine(ApplyEffect(other.gameObject));
         else
@@ -21,10 +31,15 @@ public class ConsumibleobjController : MonoBehaviour
 
     private IEnumerator ApplyEffect(GameObject g)
     {
+        var spawner = this.GetComponent<InitializeEmergentObject3D>();
+        spawner?.SetEffectActive(true); // Activar bandera
+
         targetComponent?.Modifyobj(g);
         yield return new WaitForSeconds(effectDuration);
+
         targetComponent?.Resetobj();
-        Destroy(gameObject); // Destruye el consumible después de su uso
+        spawner?.SetEffectActive(false); // Desactivar bandera
+        Destroy(gameObject);
     }
 
     private void Apply(GameObject g)
@@ -32,4 +47,9 @@ public class ConsumibleobjController : MonoBehaviour
         targetComponent?.Modifyobj(g);
         Destroy(gameObject);
     }
+    private void OnDestroy()
+{
+    Debug.Log("El objeto fue destruido.");
+}
+
 }
