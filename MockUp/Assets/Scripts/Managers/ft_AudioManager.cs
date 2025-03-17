@@ -78,7 +78,6 @@ public class ft_AudioManager : MonoBehaviour
 				Debug.LogWarning("AudioManager: soundDictionary already contains " + sound.audioType);
 		}
 	}
-
 	public void StopMusic()
 	{
 		if (currentMusicInstance.isValid())
@@ -152,11 +151,5 @@ public class ft_AudioManager : MonoBehaviour
 		}
 		else
 			Debug.LogWarning("PlaySFX: soundDictionary doesn't contain " + type);
-	}
-
-	void Update(){
-		if(Input.GetKey(KeyCode.Space)){
-			ft_AudioManager.Instance.PlaySFX(ft_AudioType.Hit_Player1, volume: 1.0f);
-		}
 	}
 }

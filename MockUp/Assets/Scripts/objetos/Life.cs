@@ -47,7 +47,6 @@ public class Life : MonoBehaviour
     public void Heal(int amount)
     {
         if (amount <= 0) return;
-
         currentHealth += amount;
         ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.DamHeal, volume: 1.0f);
 		SeeIfNeedChange();

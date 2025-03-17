@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
 	// M�todo para reiniciar el juego cargando la escena "Game"
 	private void InitGame()
     {
-        ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Music, volume: 1.0f);
+        ft_AudioManager.Instance.PlayMusic(ft_AudioManager.ft_AudioType.Music, 1.0f);
         SceneManager.LoadScene("GameFinal");  
     }
 

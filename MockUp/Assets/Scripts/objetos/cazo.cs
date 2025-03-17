@@ -13,12 +13,13 @@ public class cazo : powerup
         Transform cacerola = g.transform.Find("cacerola");
         if (cacerola != null)
         {
+            ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Pan);
             cacerola.gameObject.SetActive(true);
             Debug.Log("Cacerola activada.");
         }
         else
         {
-            Debug.LogError("No se encontró el objeto 'cacerola' dentro de Player2.");
+            Debug.LogError("No se encontrï¿½ el objeto 'cacerola' dentro de Player2.");
         }
 
     }
