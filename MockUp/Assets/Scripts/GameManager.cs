@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour
     private GameOverScreen  gameOverScreen;
     private static GameManager _instance;
 
-
+    
     private GameObject _playerOne;
     private GameObject _playerTwo;
     private GameObject _spawner;
+    private bool finishedGame = false;
     public static GameManager Instance
     {
         get
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject singletonObject = new GameObject("GameManager");
                 _instance = singletonObject.AddComponent<GameManager>();
-                DontDestroyOnLoad(singletonObject);
+                //DontDestroyOnLoad(singletonObject);
             }
             return _instance;
         }
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else if (_instance != this)
         {
@@ -53,13 +54,17 @@ public class GameManager : MonoBehaviour
     }
     public void EndScene(GameObject g)
     {
-        if (g.CompareTag("presa1"))
-        {
-            GameOver(true);
-        }
-        else if (g.CompareTag("presa2"))
-        {
-            GameOver(false);
+        Debug.Log("Fin de partida");
+        if(!finishedGame) {
+            finishedGame = true;
+            if (g.CompareTag("presa1"))
+            {
+                GameOver(false);
+            }
+            else if (g.CompareTag("presa2"))
+            {
+                GameOver(true);
+            }
         }
     }
     public void GameOver(bool isPlayer1)
@@ -77,7 +82,9 @@ public class GameManager : MonoBehaviour
 			_playerTwo = GameObject.Find("Player2");
 			playerPoint.MoveObjectToWinningPoint(_playerTwo);
 		}
-		gameOverScreen.initScreen(isPlayer1);
+        if (gameOverScreen != null) {
+    		gameOverScreen.initScreen(isPlayer1);
+        }
 	}
 
     public void SetCastorMovement(bool status)

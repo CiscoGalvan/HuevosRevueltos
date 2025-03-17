@@ -5,20 +5,18 @@ using UnityEngine;
 public class ConsumibleobjController : MonoBehaviour
 {
     [SerializeField] private bool needTime = true;
-    [SerializeField] private float effectDuration = 2.5f; // Tiempo que dura el efecto
+    [SerializeField] private float effectDuration = 2.5f; // Duración del efecto en segundos
     private powerup targetComponent;
-
 
     private void OnCollisionEnter(Collision other)
     {
-        targetComponent =this.GetComponent<powerup>();
-        if (other.gameObject.GetComponent<MovementComponent>() == null) return;
-        if(needTime)
+        targetComponent = this.GetComponent<powerup>();
+        if (other.gameObject.GetComponent<MovementComponent>() == null)
+            return;
+        if (needTime)
             StartCoroutine(ApplyEffect(other.gameObject));
         else
-        {
             Apply(other.gameObject);
-        }
     }
 
     private IEnumerator ApplyEffect(GameObject g)
@@ -26,14 +24,12 @@ public class ConsumibleobjController : MonoBehaviour
         targetComponent?.Modifyobj(g);
         yield return new WaitForSeconds(effectDuration);
         targetComponent?.Resetobj();
-        Destroy(gameObject); // Destruir el consumible despu�s de su uso
+        Destroy(gameObject); // Destruye el consumible después de su uso
     }
+
     private void Apply(GameObject g)
     {
         targetComponent?.Modifyobj(g);
         Destroy(gameObject);
-
-
     }
 }
-
