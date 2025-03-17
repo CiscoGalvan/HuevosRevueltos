@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8bb3b2000a770f4ea2b83f0088488ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountOfDamage: -10
+  _amountOfDamage: -5
   _stunnedTime: 0
   _wasHitted: 0
   _elementToCollide: 0

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _amountOfDamage: 10
   _stunnedTime: 3
+  _wasHitted: 0
   _elementToCollide: 0
 --- !u!136 &8920243306147358422
 CapsuleCollider:
@@ -142,6 +143,7 @@ MonoBehaviour:
   _maxSpeed: 5
   _steeringStrength: 2
   fase: 0
+  _livingTime: 20
 --- !u!54 &-7837697194091119122
 Rigidbody:
   m_ObjectHideFlags: 0

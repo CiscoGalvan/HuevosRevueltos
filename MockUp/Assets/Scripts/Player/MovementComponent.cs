@@ -37,38 +37,43 @@ public class MovementComponent : MonoBehaviour
 
     private StunPlayerComponent _stunPlayerComponent;
 
-    private void Start()
-    {
-        _stunPlayerComponent = GetComponent<StunPlayerComponent>();
-        baseSpeed = _speed;
-        baseMaxSpeed = _maxSpeed;
-    }
+	private Rigidbody _rb;
 
-    public void SetMovementDirection(Vector2 direction)
-    {
-        if (direction.magnitude > 0 && !_stunPlayerComponent.GetPlayerIsStunned())
-        {
-            Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * _speed;
-            _currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, _acceleration * Time.deltaTime);
-            _currentVelocity = Vector3.ClampMagnitude(_currentVelocity, _maxSpeed);
-        }
-        else
-        {
-            _currentVelocity = Vector3.Lerp(_currentVelocity, Vector3.zero, _friction * Time.deltaTime);
-        }
+	private void Start()
+	{
+		_stunPlayerComponent = GetComponent<StunPlayerComponent>();
+		_rb = GetComponent<Rigidbody>(); // Obtener el Rigidbody
+		baseSpeed = _speed;
+		baseMaxSpeed = _maxSpeed;
+	}
 
-        transform.Translate(_currentVelocity * Time.deltaTime, Space.World);
-        if (_currentVelocity.magnitude > 0.05f) // Evita rotaciones cuando está quieto
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity.normalized);
-            float rotationOffset = (gameObject.layer == LayerMask.NameToLayer("PlayerOne")) ? -90f : 90f;
-            Quaternion adjustedRotation = targetRotation * Quaternion.Euler(0, rotationOffset, 0);
-            transform.rotation = adjustedRotation;
-        }
-    }
+	public void SetMovementDirection(Vector2 direction)
+	{
+		if (direction.magnitude > 0 && !_stunPlayerComponent.GetPlayerIsStunned())
+		{
+			Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * _speed;
+			_currentVelocity = Vector3.Lerp(_currentVelocity, targetVelocity, _acceleration * Time.deltaTime);
+			_currentVelocity = Vector3.ClampMagnitude(_currentVelocity, _maxSpeed);
+		}
+		else
+		{
+			_currentVelocity = Vector3.Lerp(_currentVelocity, Vector3.zero, _friction * Time.deltaTime);
+		}
 
-    // Este método modifica la velocidad y muestra efectos gráficos
-    public void setSpeed(float s, bool increase)
+		_rb.velocity = _currentVelocity; // Usar Rigidbody para el movimiento
+
+		if (_currentVelocity.magnitude > 0.05f)
+		{
+			Quaternion targetRotation = Quaternion.LookRotation(_currentVelocity.normalized);
+			float rotationOffset = (gameObject.layer == LayerMask.NameToLayer("PlayerOne")) ? -90f : 90f;
+			Quaternion adjustedRotation = targetRotation * Quaternion.Euler(0, rotationOffset, 0);
+			transform.rotation = adjustedRotation;
+		}
+	}
+
+
+	// Este método modifica la velocidad y muestra efectos gráficos
+	public void setSpeed(float s, bool increase)
     {
         _speed = s;
 
