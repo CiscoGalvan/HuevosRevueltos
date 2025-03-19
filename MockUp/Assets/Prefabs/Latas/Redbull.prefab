@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _amountOfDamage: 10
-  _stunnedTime: 3
+  _stunnedTime: 1.25
   _wasHitted: 0
   _elementToCollide: 0
 --- !u!136 &8039004413584359861

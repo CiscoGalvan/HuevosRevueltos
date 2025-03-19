@@ -79,14 +79,17 @@ public class MovementComponent : MonoBehaviour
 
         if (!increase)
         {
-            _particleGameObject1 = Instantiate(freezeEffect, AuraPoint.transform.position, Quaternion.identity);
+            _particleGameObject1 = Instantiate(freezeEffect, SpeedPoint.transform.position, freezeEffect.transform.rotation);
+            _particleGameObject1.transform.SetParent(SpeedPoint.transform, worldPositionStays: true);
             Destroy(_particleGameObject1, 2.5f);
-            _particleGameObject2 = Instantiate(freezeAura, SpeedPoint.transform.position, Quaternion.identity);
+            _particleGameObject2 = Instantiate(freezeAura, AuraPoint.transform.position, freezeAura.transform.rotation);
+            _particleGameObject2.transform.SetParent(AuraPoint.transform, worldPositionStays: true);
             Destroy(_particleGameObject2, 2.5f);
         }
         else
         {
-            _particleGameObject3 = Instantiate(speedEffect, SpeedPoint.transform.position, Quaternion.identity);
+            _particleGameObject3 = Instantiate(speedEffect, SpeedPoint.transform.position, speedEffect.transform.rotation);
+            _particleGameObject3.transform.SetParent(SpeedPoint.transform);
             Destroy(_particleGameObject3, 2.5f);
         }
     }

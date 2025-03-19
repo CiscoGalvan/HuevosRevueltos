@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4574691406528123881}
-  - component: {fileID: 1894818983244204010}
   - component: {fileID: 2511787160046362100}
   - component: {fileID: 8539327636859998035}
   - component: {fileID: 8096237352079094779}
@@ -41,14 +40,6 @@ Transform:
   - {fileID: 303197638682864594}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0.312, z: 0}
---- !u!33 &1894818983244204010
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3901221886050495363}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!135 &2511787160046362100
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -113,6 +104,12 @@ MonoBehaviour:
   _maxSpeed: 10
   _friction: 3
   _speed: 10
+  freezeEffect: {fileID: 0}
+  freezeAura: {fileID: 0}
+  speedEffect: {fileID: 0}
+  SpeedPoint: {fileID: 0}
+  AuraPoint: {fileID: 0}
+  isSpeedModified: 0
 --- !u!114 &2584109068061017982
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -35,6 +35,8 @@ public class ConsumibleobjController : MonoBehaviour
         spawner?.SetEffectActive(true); // Activar bandera
 
         targetComponent?.Modifyobj(g);
+        
+        GetComponent<Collider>().enabled = false;
         yield return new WaitForSeconds(effectDuration);
 
         targetComponent?.Resetobj();

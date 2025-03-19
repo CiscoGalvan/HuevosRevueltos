@@ -1,85 +1,60 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
+using DG.Tweening; 
 
 public class Countdown : MonoBehaviour
 {
-    private float time;
-    [SerializeField]
-    private GameObject Three;
+    [SerializeField] private TextMeshProUGUI countdownText;
+    
+    private readonly string[] countdownNumbers = { "3", "2", "1", "START!" };
 
-    [SerializeField]
-    private GameObject Two;
-
-    [SerializeField]
-    private GameObject One;
-
-
-    [SerializeField]
-    private GameObject Fight;
-
-    private Canvas parentCanvas;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        parentCanvas = GetComponentInParent<Canvas>();
-    }
     private void Start()
     {
-        time = 0;
         GameManager.Instance.SetCastorMovement(false);
+        StartCoroutine(StartCountdown());
     }
 
-    private void SetThree()
+    private IEnumerator StartCountdown()
     {
-        Three.SetActive(true);
-        Two.SetActive(false);
-        One.SetActive(false);
-        Fight.SetActive(false);
-        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start, volume: 1.0f);
-    }
-    private void SetTwo()
-    {
-        Three.SetActive(false);
-        Two.SetActive(true);
-        One.SetActive(false);
-        Fight.SetActive(false);
-        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start2, volume: 1.0f);
-    }
-    private void SetOne()
-    {
-        Three.SetActive(false);
-        Two.SetActive(false);
-        One.SetActive(true);
-        Fight.SetActive(false);
-        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start3, volume: 1.0f);
-    }
-
-    private void SetFight()
-    {
-        Three.SetActive(false);
-        Two.SetActive(false);
-        One.SetActive(false);
-        Fight.SetActive(true);
-        ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start4, volume: 1.0f);
-    }
-    private void Update()
-    {
-        time += Time.deltaTime;
-        if (time < 1) SetThree();
-        else if (time < 2) SetTwo();
-        else if (time < 3) SetOne();
-        else if (time < 4) SetFight();
-        else if (time > 4)
+        for (int i = 0; i < countdownNumbers.Length; i++)
         {
-            GameManager.Instance.SetCastorMovement(true);
+            countdownText.text = countdownNumbers[i];
+            AnimateText();
 
-            parentCanvas.enabled = false;
-            this.enabled = false;
+            PlayCountdownSound(i);
 
+            yield return new WaitForSeconds(1f); 
         }
-          
+
+        GameManager.Instance.SetCastorMovement(true);
+        Destroy(gameObject); 
+    }
+
+    private void AnimateText()
+    {
+        countdownText.transform.localScale = Vector3.zero; 
+        countdownText.DOFade(1, 0.2f); 
+        countdownText.transform.DOScale(1.5f, 0.5f).SetEase(Ease.OutBack) 
+            .OnComplete(() => countdownText.DOFade(0, 0.5f)); 
+    }
+
+    private void PlayCountdownSound(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start, volume: 1.0f);
+                break;
+            case 1:
+                ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start2, volume: 1.0f);
+                break;
+            case 2:
+                ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start3, volume: 1.0f);
+                break;
+            case 3:
+                ft_AudioManager.Instance.PlaySFX(ft_AudioManager.ft_AudioType.Start4, volume: 1.0f);
+                break;
+        }
     }
 }
