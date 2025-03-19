@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/initialMenu.unity
     guid: d693b2b3173f4a8498b2e27657a64d4d
   - enabled: 1
+    path: Assets/Scenes/GameFinal.unity
+    guid: 17fe4e542806ae84fa43289860c94215
+  - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: 5b731547db0cd8646a4460d3f55250fe
-  - enabled: 1
-    path: Assets/Scenes/GameFinal_.unity
-    guid: 42af2e48d143f8842ad9930fc79cb886
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c1948867b99f1584485f7b47d34f8ac2, type: 2}
